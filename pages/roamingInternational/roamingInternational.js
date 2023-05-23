@@ -172,6 +172,9 @@ Page({
       });
     }
     else{
+
+      this.redirectActivateRoamingInt();
+
       this.setData({
         switchServiceState: true,
       });
@@ -243,7 +246,7 @@ Page({
 
   redirectActivateRoamingInt(){
     my.navigateTo({
-      url: "/pages/soluciones-moviles/roaming-international/expiration-date-roaming/expiration-date-roaming?isActive=" + this.data.isActive
+      url: "/pages/roamingInternational/expiration-date-roaming/expiration-date-roaming?isActive=" + this.data.isActive
     });
   }
 });
