@@ -1,0 +1,109 @@
+<view class="container" hidden="{{!loaded}}">
+  <view class="container-item container-text-bold border-botton-container">
+    <view class="item2">
+      <view class="test-numero-linea">
+        <image id="icon-phone" mode="scaleToFill" src="/assets/icons/roaming/phone-roaming.svg" />
+        <view style="font-weight: bold;">
+          Administra tu Roaming
+        </view>
+      </view>
+      <view style="font-weight: bold;">
+        {{lineNumber}}
+      </view>
+    </view>
+    <view>
+      <text class="text-demo-text">
+       Navega,chatea,habla y comparte lo mejor de tu viaje en el exterior con roaming internacional Claro.
+      </text>
+    </view>
+  
+  </view>
+  <view class="container-item border-botton-container">
+    <view class="item-text-estado-servicio">
+      Tu servicio Roaming Se encuentra:
+    </view>
+    <view class="switch-item">
+      <view>
+        <switch controlled color="red" onChange="switchChange" checked={{switchServiceState}} />
+      </view>
+      <view class="item-switch-text">
+        <text a:if="{{ switchServiceState }}">Activo</text>
+        <text a:else>Inactivo</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="container-item  paquetes-module">
+    <view a:if="{{switchServiceState}}" class="item-fecha-expiracion">
+      <view a:if="{{switchServiceState}}">
+        Fecha de expiración:
+      </view>
+      <view class="test-numero-linea">
+        <view>
+          {{expirationDate}}
+        </view>
+        
+      </view>
+    </view>
+  </view>
+  <view class="container-item-center">
+    <view
+      a:if="{{switchServiceState}}"
+      class="btn-compra-paquetes-roaming"
+      style="padding-top:10px"
+    >
+      <view style="width:90%">
+        <button class="btn-btn-Modificar-Vigencia-paquetes-roaming">
+              Modificar Vigencia
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <view a:if="{{switchServiceState}}" class="text-demo-text text-center ">
+    <text >
+      Te invitamos a revisar nuestra oferta de paquetes de Roaming Internacional para que permanezcas en tus viajes a un menor precio.
+    </text>
+  </view>
+  <view class="container-item-center">
+    <view
+      a:if="{{switchServiceState}}"
+      class="btn-compra-paquetes-roaming"
+      style="padding-top:10px"
+    >
+      <view style="width:90%">
+        <button class="btn-btn-compra-paquetes-roaming">
+             Comprar paquetes
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <view a:if="{{switchServiceState}}" class="text-demo-text text-center ">
+    <text >
+      El limite de crédito para el servicio de datos es de ${{credictValue}}.Ten en cuenta que debes contar con el saldo suficiente en el limite de 
+      crédito para adquirir Paquetes de datos de Roaming Internacional
+    </text>
+  </view>
+
+
+ <modal-accept
+    content="{{descriptionError}}"
+    visible="{{modalVisibleError}}"
+    onClose="{{redirectServices}}"
+    primaryButtonText="Aceptar"
+    onPrimaryButtonTap="{{redirectServices}}"
+  />
+
+  <modal-accept
+    content="{{descriptionModal}}"
+    visible="{{modalVisibleDescription}}"
+    onClose="handleClose"
+    primaryButtonText="Aceptar"
+    onPrimaryButtonTap="handleClose"
+  />
+
+  <loading-component a:if="{{showLoading}}" />
+</view>
+
+
