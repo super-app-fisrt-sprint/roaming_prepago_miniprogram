@@ -1,9 +1,12 @@
 {
   "subPackageBuildType": "shared",
   "pages": [
-    "pages/index/index"
+    "pages/roamingInternational/roamingInternational"
   ],
   "window": {
-    "defaultTitle": "My App"
+    "defaultTitle": "SuperApp Claro",
+    "titleBarColor": "#121D24",
+    "gestureBack": "YES",
+    "showTitleLoading": "YES"
   }
 }
