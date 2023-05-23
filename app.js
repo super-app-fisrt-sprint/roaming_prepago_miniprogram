@@ -3,11 +3,18 @@ App({
     console.info("App onLaunch");
   },
   onShow(options) {},
-  globalData: {
-    
-    lineNumber: "3103815747",
+    globalData: {
+    DocumentType:1,//1 es cc ,si es 2 es nit 
+    tipoCanalID:"10",
+    email:"evoluciondecanales@gmail.com",
+    urlActivate:'https://portalvoz.claro.com.co/',
+    nombre:"Sistema Calle telmex Col",
+    apellido:"",
+    UserProfileID:"evoluciondecanales@gmail.com",
+    DocumentNumber: "56220783",
+    NumberAccount: "56220783",
+    lineNumber: "3058863237",
     sessionId:
-         "U2FsdGVkX1/yIvcdPLmi4IqHURo6rVUc8ShIPX97Q3WbvNyT80ykFQ0Q4/0jtEFfsLdZg+e6Sg9+JVOXI6dL9yFSKBCKMwIjJ3L5ewLitYysLeEnICWyj1pd2s5epSdQAX0s5vpsTuNZvQ84WmJP3m4Mrc259AoWuMrJ1ldBPGyd1nWQxRrqtsHgG5yZ3D4AlRXiAiYYpNdXgNv1IwbpndM114KXzFJbybUD+gE7qc/N9rkDuGkYzBU/dGXjNbCXYv4koIodJ7DJhIeBGU8K5MLk2yGGGiyMC/BmZsiKRAnnPW+q8KVb2VJQzCcpH8OSrRxM1n7fi3aFiRGSP2+4bYK+Lb+5DUSTHG1OD3YqZNdTJ/S4ZbeKxp7o/5NodLvvo5sUT7vgg/lpunYuqxEyYyBY4fTgFAhmYNo677AC16uR6/FLshmDKGQcDuMnDLjj0ZDY/tccgO9XlO3ZL33vb4qdnPAzj3ySKAbbNd6Qzq7sH8WUgZ3Gh1VSwSHaN/5O3ptF8K6R4JGxI7LnpRyi2l+pCpWDjU130y/qCzyBLn8=",
-    sessionError: "Se te ha agotado el tiempo de sesión"
+      "U2FsdGVkX1/M2RqDOPvv79ABiYicxpWEV2ZHcpMyIgu8VqqxGENzU66PQb2vbE+YiGJe446unXTqdvfe45IE3w56zH84KcUlranzt6HctUjI2g6YMrIuv2jmPn9VhiEo7ZlbI/ZHekMtXO4OWdYsRvtfuOBY1x0PFqzYbyjm0D3I7csjXWIRxpoehfi8/A5CXjn4fBj/dZ4is8dQtt92hJo+CHOWlc+Ou0193ZeQ882ExRUksytOIxuSPlP93aiOmyYD0xCbD5O+Jfiyi4UDT6EBHSQhBqV3cwVcbBavoQ2xVpL/HB0UuRigwfTpc+H7CMZEaT6U4JrSlkdHhI0hdo7r1vVtTdVCAWlweCWUMwR/SrW26kKP15OtuOLZk8VPkA833AwU3Vo+77LkkNXrOLzBBdgskjY1WqJsDwgKo4ZS3z9MlqbA7v9e2X1uxyE+DD66Vee3vHSrhM8vc/DIms0gLKqDzNaUnBK04/EkGmu7C5yZkKiAiz03xkHRGWUGUnMgQmZ8hz5lFlj9NfpUxyomoiDpqZ05ItoGDEM9T2uNhUQY4G8Y/4HBMH9aB9h8Fugm+hRbx5OxnyuZNDVg3vGA5QhmEIQPB3NQTM4h+bHQfHCfq4F1yCH1liG2kgvaVP6w0zWEsANKuc3ia/qY0xqeKJ/2w3i4KwR30ytZNIGmHEOkJc/gVAt+1tv+ObzxirFJofVTSaZREq8iMbWzlDgiwBIpdBe7c4nwjtigYHrEh+wXTYHDU6Qr4t1BrouoYkJbn/QT2+h7f5/6NXUHBkPlEga4ytRKtoZOGKkWEGhj5COuhFbgEKdFXeUG/bhBNyUZ4eREsp+phhmB8d56wnvJQ+uhC8VVfrqthV7lAzc6BR398jprO+KEKq7+LQuEAYkQHRRoONJQcfp1Hq5KMNCGd2YcBDSCKkrIVooTNus=",
   }
 });
