@@ -1,0 +1,16 @@
+<view>
+  <view class="container-item border-botton-container">
+    <view class="item-text-estado-servicio">
+      Estado de tu servicio
+    </view>
+    <view class="switch-item">
+      <view>
+        <switch controlled color="red" onChange="switchChange" checked={{switchServiceState}} />
+      </view>
+      <view class="item-switch-text">
+        <text a:if="{{ switchServiceState }}">Activo</text>
+        <text a:else>Inactivo</text>
+      </view>
+    </view>
+  </view>
+</view>
