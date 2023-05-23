@@ -1,7 +1,7 @@
 import { requestApiretrieve } from "/services/retrieveRoamingService";
 import { requestApiCheckInstalled } from "/services/checkInstalledPackagesService";
 import { requestApiDisableRoamingPackage } from "/services/disableRoamingPacket";
-import { requestApiDisableRoamingService } from "/services/disableRoamingService";
+import { requestApiDisableRoamingService } from "/services/disableRoamingServicePersonas";
 
 Page({
   data: {
@@ -32,7 +32,8 @@ Page({
     urlDisableRoamingPacket:
       "https://apiselfservice.co/M3/Empresas/Postpago/DisableRoamingPacket/",
     urlDisableRoamingService:
-      "https://apiselfservice.co/api/index.php/v1/soap/activateRoamingService.json"
+      "https://apiselfservice.co/M3/Postpago/Roaming/desactivarServicio/",
+      
   },
 
   onReady() {
@@ -164,20 +165,76 @@ Page({
         })
       });
   },
+  disableRoamingService(line) {
+    requestApiDisableRoamingService(
+      this.data.urlDisableRoamingService,
+      line,
+      this,      
+      
+    )
+      .then(res => {
+        if (res.data.error == 0) {
+          this.setData({
+            switchServiceState: false
+          });
+          this.openModalConfirmDisableService();
+        } else {
+          this.hideLoading({
+            page: this
+          });
+          my.alert({
+            content: res.data.response,
+            buttonText: "Cerrar"
+          });
+          this.setData({
+            switchServiceState: true
+          });
+        }
+        console.log(res);
+      })
+      .catch(error => {
+        this.hideLoading({
+          page: this
+        });
+        this.setData({
+          redirectServices:"redirectBackServices",
+          descriptionError:"Ha ocurrido un error, por favor inténtelo de nuevo más tarde",
+           modalVisibleError:true,
+        })
+      });
+  },
 
   switchChange(e) {
     if (!e.detail.value) {
       this.setData({
-        switchServiceState: false,
+        modalServiceVisible: true
       });
-    }
-    else{
-      this.setData({
-        switchServiceState: true,
-      });
+    }else{
+      this.redirectActivateRoamingInt();
     }
   },
+  // switchChange(e) {
+  //   if (!e.detail.value) {
+  //     this.setData({
+  //       switchServiceState: false,
+  //     });
+  //   }
+  //   else{
+  //     this.setData({
+  //       switchServiceState: true,
+  //     });
+  //   }
+  // },
 
+  openModalConfirmDisableService() {
+    console.log("confirm disable");
+
+    this.setData({
+      modalConfirmDisableService: true
+    });
+
+    this.hideLoading();
+  },
   handleOpenModal(e) {
     console.log(e);
     console.log("Entrando");
@@ -189,6 +246,11 @@ Page({
   },
 
   onAcceptButtonTap() {
+    console.log("Aceptar");
+    this.setData({
+      modalVisible: false
+    });
+
     my.showLoading({
       content: "Cargando..."
     });
@@ -202,6 +264,18 @@ Page({
       }
     });
   },
+    // Disabling roaming service
+    onAcceptButtonRoamingTap() {
+      const numberLinerSearch = getApp().globalData.lineNumber;
+      console.log("Disable");
+      this.setData({
+        modalServiceVisible: false
+      });
+      this.showLoading({
+        content: "Cargando..."
+      });
+      this.disableRoamingService( numberLinerSearch);
+    },
 
   onCancelButtonTap() {
     console.log("Cancelar");
@@ -214,6 +288,13 @@ Page({
     this.setData({
       modalVisible: false,
       modalVisibleDescription: false
+    });
+  },
+  // Disbabling roaming service
+  handleCloseRoaming() {
+    this.setData({
+      modalConfirmDisableService: false,
+      switchServiceState: false
     });
   },
 

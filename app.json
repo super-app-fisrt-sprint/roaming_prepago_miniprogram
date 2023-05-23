@@ -1,9 +1,9 @@
 {
   "subPackageBuildType": "shared",
   "pages": [
-    
-    "pages/desactiveRoamingPrepago/desactiveRoamingPrepago",
     "pages/roamingInternational/roamingInternational"
+    
+    
   ],
   "window": {
     "defaultTitle": "SuperApp Claro",
