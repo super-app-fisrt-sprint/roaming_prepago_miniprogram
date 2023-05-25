@@ -8,6 +8,8 @@ Page({
     credictValue:317949,
     sessionError:"Se te ha agotado el tiempo de sesión",
     redirectServices:"",
+    descriptionInformationModal: "Por esta opción solo activarás el servicio de roaming internacional, recuerda ingresar a la opción de “Comprar paquetes” y adquirir uno para el país al que vas a viajar.",
+    modalVisibleInfo: false,
     descriptionError:"",
     modalVisibleError:false,
     modalServiceVisible: false,
@@ -138,7 +140,9 @@ Page({
         modalServiceVisible: true
       });
     }else{
-      this.redirectActivateRoamingInt();
+      this.setData({
+        modalVisibleInfo: true
+      });
     }
   },
   // switchChange(e) {
@@ -250,9 +254,13 @@ Page({
     });
   },
 
+  onAcceptInfoModal(){
+    this.redirectActivateRoamingInt();
+  },
+
   redirectActivateRoamingInt(){
     my.navigateTo({
-      url: "/pages/soluciones-moviles/roaming-international/expiration-date-roaming/expiration-date-roaming?isActive=" + this.data.isActive
+      url: "/pages/roamingInternational/expiration-date-roaming/expiration-date-roaming?isActive=" + this.data.isActive
     });
   },
 
