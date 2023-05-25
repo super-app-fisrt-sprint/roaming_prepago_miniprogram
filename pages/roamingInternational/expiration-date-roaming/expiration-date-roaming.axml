@@ -77,12 +77,9 @@
 </view>
 
 <view class="text-section">
-  <text>
-    Si activas el servicio de Roaming Internacional por demanda, los datos (KB), minutos y SMS que consumas durante tus viajes serán cobrados a la tarifa vigente para el país que visites, las cuales puedes consultar en
-  </text>
-  <view onTap="redirectToRoamingWeb" class="text-mas-informacion-blue">
-    Más información
-  </view>
+  <text>Luego de la activación del servicio de roaming internacional, recuerda adquirir un paquete de</text>
+  <text class="bold espaciado-text">datos y/o voz</text>
+  <text>de acuerdo a tu país de destino, ingresando por la opción de Comprar paquetes.</text>
 </view>
 
 

@@ -152,7 +152,7 @@
 .text-section {
   margin: 20px;
   padding: 10px;
-  background-color: #03839d54;
+  background-color: #a8aeaf54;
   border-radius: 5px;
   font-size: 14px;
 }
@@ -166,4 +166,12 @@
 
 .icon-exclamation{
   font-size: 40px; margin:20px;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.espaciado-text{
+  padding-left: 10px; padding-right:10px;
 }

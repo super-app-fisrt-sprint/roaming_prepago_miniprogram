@@ -170,10 +170,27 @@ Page({
   },
 
   sendPostActivationRoaming(date) {
+
+    let dataRequest;
+
+    //AAAA-MM-DD
+    date = date.split('-').reverse().join('');
+    //DDMMAAAA  
+    if(date !== ''){
+      dataRequest = {
+        min: getApp().globalData.lineNumber,
+        fecha: date,
+      }
+    }else[
+      dataRequest = {
+        min: getApp().globalData.lineNumber
+      }
+    ]
+
     setTimeout(() => {
       this.showLoadings();
     }, 100);
-    postActivactionRequest(this, date)
+    postActivactionRequest(this, dataRequest)
       .then(res => {
         console.log("response", res);
         this.hideLoading();

@@ -6,8 +6,8 @@ let requestParameter = getApp();
  * @param {page} that 
  * @param {string} expirationDate
  */
-export function postActivactionRequest(that, expirationDate) {
-  let contentLength = expirationDate == '' ? '44' : '54'
+export function postActivactionRequest(that, dataRequest) {
+  
 
   return new Promise((resolve, reject) => {
     my.request({
@@ -16,8 +16,7 @@ export function postActivactionRequest(that, expirationDate) {
       dataType: 'json',
       data: {
         data: {
-          activar: '1',
-          ExpirationDate: expirationDate,
+          data: dataRequest
         }
       },
       headers: {
