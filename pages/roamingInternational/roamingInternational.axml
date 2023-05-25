@@ -79,14 +79,6 @@
     </view>
   </view>
 
-  <view a:if="{{switchServiceState}}" class="text-demo-text text-center ">
-    <text >
-      El limite de crédito para el servicio de datos es de ${{credictValue}}.Ten en cuenta que debes contar con el saldo suficiente en el limite de 
-      crédito para adquirir Paquetes de datos de Roaming Internacional
-    </text>
-  </view>
-
-
  <modal-accept
     content="{{descriptionError}}"
     visible="{{modalVisibleError}}"
@@ -102,6 +94,24 @@
     primaryButtonText="Aceptar"
     onPrimaryButtonTap="handleClose"
   />
+  <modal-accept-cancel
+    title="¿Estás seguro que deseas desactivar el servicio de Roaming internacional en tu linea?" 
+    content="{{lineNumber}}"
+    visible="{{modalServiceVisible}}"
+    onClose="handleClose"
+    primaryButtonText="Desactivar"
+    secondaryButtonText="Cerrar"
+    onPrimaryButtonTap="onAcceptButtonRoamingTap"
+    onSecondaryButtonTap="onCancelButtonRoamingTap"  
+  />
+  <modal-check
+  title="Tu servicio de Roaming internacional se ha desactivado exitosamente!"
+  content="Reinicia el equipo asociado a esa linea para terminar el proceso."
+  visible="{{modalConfirmDisableService}}"
+  onClose="handleCloseRoaming"
+  primaryButtonText="Cerrar"
+  onPrimaryButtonTap="handleCloseRoaming"
+/>
 
   <loading-component a:if="{{showLoading}}" />
 </view>

@@ -1,7 +1,7 @@
 import { requestApiretrieve } from "/services/retrieveRoamingService";
 import { requestApiCheckInstalled } from "/services/checkInstalledPackagesService";
 import { requestApiDisableRoamingPackage } from "/services/disableRoamingPacket";
-import { requestApiDisableRoamingService } from "/services/disableRoamingService";
+import { requestApiDisableRoamingService } from "/services/disableRoamingServicePersonas";
 
 Page({
   data: {
@@ -32,7 +32,8 @@ Page({
     urlDisableRoamingPacket:
       "https://apiselfservice.co/M3/Empresas/Postpago/DisableRoamingPacket/",
     urlDisableRoamingService:
-      "https://apiselfservice.co/api/index.php/v1/soap/activateRoamingService.json"
+      "https://apiselfservice.co/M3/Postpago/Roaming/desactivarServicio/",
+      
   },
 
   onReady() {
@@ -54,7 +55,6 @@ Page({
       .then(res => {
         console.log("Retrieve Service--->",res)
         this.retrieveServiceValidation(res);
-        // this.packageInstalledService();
       })
       .catch(error => {
         this.hideLoading();
@@ -86,80 +86,40 @@ Page({
 
     this.hideLoading();
   },
-  packageInstalledService() {
-    const errorGlobalSession = getApp().globalData.sessionError;
-    requestApiCheckInstalled(this.data.urlChekingInstalled, this)
-      .then(res => {
-        console.log("succes---->", res);
-        if (res.data.error == 1) {
-          this.setData({
-            redirectServices:"redirectHomeServices",
-            descriptionError:"En este momento no podemos atender esta solicitud, intenta nuevamente",
-             modalVisibleError:true,
-          })
-        } else {
-          this.packageInstalledValidation(res);
-        }
-      })
-      .catch(error => {
-        console.log("error--->", error);
-        this.hideLoading();
-        if (
-          error.status === 401 &&
-          error.data &&
-          error.data.response === "Error de acceso, tiempo de sesion agotado"
-        ) {
-          this.setData({
-            redirectServices:"redirectLoginServices",
-            descriptionError:this.data.sessionError,
-             modalVisibleError:true,
-          })
-        }
-        else if (error.error == 13) {
-          this.setData({
-            descriptionError:"No es posible obtener información, por favor inténtelo de nuevo más tarde",
-            redirectServices:"redirectHomeServices",
-             modalVisibleError:true,
-          })
-        } else {
-          
-          this.setData({
-            descriptionError:this.data.sessionError,
-            redirectServices:"redirectLoginServices",
-            modalVisibleError:true,
-          })
-        }
-      });
-  },
-  packageInstalledValidation(res) {
-    const packageInstallList = res.data.response.map(item => {
-      const { name, description, codServ } = item;
-      return { name, description, codServ };
-    });
-    this.setData({
-      packagedInstalled: packageInstallList,
-      loaded: true,
-      codServ: "test"
-    });
-    console.log("request roaming success");
-    this.hideLoading();
-  },
-  packageDisableRoaming(disableData) {
-    requestApiDisableRoamingPackage(
-      this.data.urlDisableRoamingPacket,
-      disableData,
-      this
+  disableRoamingService(line) {
+    requestApiDisableRoamingService(
+      this.data.urlDisableRoamingService,
+      line,
+      this,      
+      
     )
       .then(res => {
+        if (res.data.error == 0) {
+          this.setData({
+            switchServiceState: false
+          });
+          this.openModalConfirmDisableService();
+        } else {
+          this.hideLoading({
+            page: this
+          });
+          my.alert({
+            content: res.data.response,
+            buttonText: "Cerrar"
+          });
+          this.setData({
+            switchServiceState: true
+          });
+        }
         console.log(res);
       })
       .catch(error => {
-        my.hideLoading({
+        this.hideLoading({
           page: this
         });
         this.setData({
-          redirectServices:"redirectLoginServices",
-          descriptionError:this.data.sessionError,
+          redirectServices:"redirectBackServices",
+          descriptionError:"Ha ocurrido un error, por favor inténtelo de nuevo más tarde",
            modalVisibleError:true,
         })
       });
@@ -168,19 +128,34 @@ Page({
   switchChange(e) {
     if (!e.detail.value) {
       this.setData({
-        switchServiceState: false,
+        modalServiceVisible: true
       });
-    }
-    else{
-
+    }else{
       this.redirectActivateRoamingInt();
-
-      this.setData({
-        switchServiceState: true,
-      });
     }
   },
+  // switchChange(e) {
+  //   if (!e.detail.value) {
+  //     this.setData({
+  //       switchServiceState: false,
+  //     });
+  //   }
+  //   else{
+  //     this.setData({
+  //       switchServiceState: true,
+  //     });
+  //   }
+  // },
 
+  openModalConfirmDisableService() {
+    console.log("confirm disable");
+
+    this.setData({
+      modalConfirmDisableService: true
+    });
+
+    this.hideLoading();
+  },
   handleOpenModal(e) {
     console.log(e);
     console.log("Entrando");
@@ -192,6 +167,11 @@ Page({
   },
 
   onAcceptButtonTap() {
+    console.log("Aceptar");
+    this.setData({
+      modalVisible: false
+    });
+
     my.showLoading({
       content: "Cargando..."
     });
@@ -205,6 +185,18 @@ Page({
       }
     });
   },
+    // Disabling roaming service
+    onAcceptButtonRoamingTap() {
+      const numberLinerSearch = getApp().globalData.lineNumber;
+      console.log("Disable");
+      this.setData({
+        modalServiceVisible: false
+      });
+      this.showLoading({
+        content: "Cargando..."
+      });
+      this.disableRoamingService( numberLinerSearch);
+    },
 
   onCancelButtonTap() {
     console.log("Cancelar");
@@ -217,6 +209,13 @@ Page({
     this.setData({
       modalVisible: false,
       modalVisibleDescription: false
+    });
+  },
+  // Disbabling roaming service
+  handleCloseRoaming() {
+    this.setData({
+      modalConfirmDisableService: false,
+      switchServiceState: false
     });
   },
 
@@ -246,7 +245,7 @@ Page({
 
   redirectActivateRoamingInt(){
     my.navigateTo({
-      url: "/pages/roamingInternational/expiration-date-roaming/expiration-date-roaming?isActive=" + this.data.isActive
+      url: "/pages/soluciones-moviles/roaming-international/expiration-date-roaming/expiration-date-roaming?isActive=" + this.data.isActive
     });
   }
 });
