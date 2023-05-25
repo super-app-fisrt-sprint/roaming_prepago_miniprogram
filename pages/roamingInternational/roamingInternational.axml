@@ -136,6 +136,16 @@
   primaryButtonText="Aceptar"
   onPrimaryButtonTap="handleCloseMod3"
 />
+
+<modal-accept-cancel
+  content="{{descriptionInformationModal}}"
+  visible="{{modalVisibleInfo}}"
+  onClose="handleClose"
+  onPrimaryButtonTap="onAcceptInfoModal"
+  onSecondaryButtonTap="handleClose"
+  primaryButtonText="Aceptar"
+  secondaryButtonText="Cancelar"
+  />
   <loading-component a:if="{{showLoading}}" />
 </view>
 

@@ -2,7 +2,8 @@
   "subPackageBuildType": "shared",
   "pages": [
     "pages/roamingInternational/roamingInternational",
-    "pages/web-view/web-view"    
+    "pages/web-view/web-view"    ,
+    "pages/roamingInternational/expiration-date-roaming/expiration-date-roaming"
   ],
   "window": {
     "defaultTitle": "SuperApp Claro",

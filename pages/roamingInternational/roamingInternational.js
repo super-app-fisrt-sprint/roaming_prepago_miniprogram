@@ -53,6 +53,32 @@ Page({
   },
 
   onShow() {
+
+    my.getStorage({
+      key: 'roamingPrepago',
+      success: function(res) {
+        console.log("STORAGE:", res);
+        this.setData({
+          errorVisible: false
+        });
+
+        if(res.data.activaRoaming) {
+          this.setData({
+            errorVisible: true
+          });
+        }
+        
+        my.removeStorage({
+          key: 'roamingPrepago'
+        });
+      },
+      fail: function(res){
+        this.setData({
+          errorVisible: false
+        });
+      }
+    });
+
     const numberLinerSearch = getApp().globalData.lineNumber;
     console.log(numberLinerSearch)
     this.setData({
@@ -89,7 +115,7 @@ Page({
       this.setData({
         switchServiceState: true,
         isActive: isActiveService,
-        errorVisible: true
+        modalVisibleInfo: false
       });
     }
 
@@ -219,7 +245,10 @@ Page({
   handleClose() {
     this.setData({
       modalVisible: false,
-      modalVisibleDescription: false
+      modalVisibleDescription: false,
+      modalVisibleInfo: false,
+      errorVisible2: false,
+      errorVisible3: false
     });
   },
   // Disbabling roaming service

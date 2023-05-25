@@ -1,6 +1,6 @@
 import {
   postActivactionRequest
-} from "/services/activateRoamingService"
+} from "/services/activateRoamingServicePrepago"
 
 Page({
   data: {
@@ -195,6 +195,17 @@ Page({
         console.log("response", res);
         this.hideLoading();
         if (res.status == 200 && res.data.error == 0) {
+
+          my.setStorage({
+            key: 'roamingPrepago',
+            data: {
+              activaRoaming: true
+            },
+            success: function() {
+              
+            }
+          });
+
           this.setData({
             modalVisibleMessage: true,
           });
