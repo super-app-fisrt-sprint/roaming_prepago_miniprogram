@@ -39,11 +39,25 @@ Page({
     errorVisible: false,
     errorVisible2: false,
     errorVisible3: false,
+    activeService: false,
     webViewUrl:
       "https://www.claro.com.co/personas/servicios/servicios-moviles/roaming/"
 
   },
 
+  onLoad(){
+
+    //Switch este en true activaRoaming == false
+    my.setStorage({
+      key: 'roamingPrepago',
+      data: {
+        activaRoaming: false
+      },
+      success: function() {
+        
+      }
+    });
+  },
   onReady() {
     my.setNavigationBar({
       title: "Roaming internacional",
@@ -53,32 +67,29 @@ Page({
   },
 
   onShow() {
-
+    let that = this;
     my.getStorage({
       key: 'roamingPrepago',
       success: function(res) {
-        console.log("STORAGE:", res);
-        this.setData({
-          errorVisible: false
-        });
 
+        console.log("STORAGE:", res);
         if(res.data.activaRoaming) {
-          this.setData({
+          that.setData({
             errorVisible: true
           });
-        }
-        
+        }        
+        console.log(this.data.errorVisible);
         my.removeStorage({
           key: 'roamingPrepago'
         });
+        
       },
       fail: function(res){
-        this.setData({
+        that.setData({
           errorVisible: false
         });
       }
     });
-
     const numberLinerSearch = getApp().globalData.lineNumber;
     console.log(numberLinerSearch)
     this.setData({
@@ -227,7 +238,9 @@ Page({
       const numberLinerSearch = getApp().globalData.lineNumber;
       console.log("Disable");
       this.setData({
-        modalServiceVisible: false
+        modalServiceVisible: false,
+        errorVisible2: false,
+        errorVisible3: false
       });
       this.showLoading({
         content: "Cargando..."
@@ -246,9 +259,10 @@ Page({
     this.setData({
       modalVisible: false,
       modalVisibleDescription: false,
-      modalVisibleInfo: false,
-      errorVisible2: false,
-      errorVisible3: false
+      modalVisibleInfo: false
+      // errorVisible:false,
+      // errorVisible2: false,
+      // errorVisible3: false
     });
   },
   // Disbabling roaming service
@@ -300,7 +314,7 @@ Page({
       url: `/pages/web-view/web-view?url=${this.data.webViewUrl}`
     });
   },
-  handleClose() {
+  handleClose2() {
     this.setData({
       errorVisible: false,
       errorVisible2: true

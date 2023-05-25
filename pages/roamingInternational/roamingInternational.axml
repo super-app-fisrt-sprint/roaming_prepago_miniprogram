@@ -117,9 +117,9 @@
   visible="{{errorVisible}}"
   primaryButtonText="Si, comprar"
   secondaryButtonText="No gracias"
-  onPrimaryButtonTap=""
-  onClose="handleClose"
-  onSecondaryButtonTap="handleClose"
+  onPrimaryButtonTap="handleClose2"
+  onClose="handleClose2"
+  onSecondaryButtonTap="handleClose2"
 />
 <pop-up-continuar
   content="Al activar el roaming, sin comprar un paquete; los datos, minutos y SMS se cobraran al precio de la tarifa del pais."
@@ -129,14 +129,31 @@
   onClose="handleCloseMod2"
   onSecondaryButtonTap="handleCloseMod2"
 />
-<pop-up-accept style=""
-  content="Tu servicio de Roaming internacional ha sido activado exitosamente en la linea {{lineNumber}} reinicia el equipo asociado a esa linea para terminar el proceso con la fecha de caducidad {{expirationDate}}"
+
+<modal-accept
   visible="{{errorVisible3}}"
   onClose="handleClose"
   primaryButtonText="Aceptar"
   onPrimaryButtonTap="handleCloseMod3"
-/>
-
+>
+<view slot="content" style="color: #000">
+  <view style="font-weight:normal; padding-bottom:20px">
+    Tu servicio de Roaming Internacional se ha activado exitosamente para la linea:
+  </view>
+  <view style="font-weight:bold; padding-bottom:20px; color:var(--claro-color);">
+    {{lineNumber}}
+  </view>
+  <view style="font-weight:normal; padding-bottom:20px">
+    Reinicia el equipo asociado a esa línea para terminar el proceso
+  </view>
+  <view style="font-weight:normal; padding-bottom:10px">
+    Con la fecha de caducidad
+  </view>
+  <view style="font-weight:bold;color:var(--claro-color);">
+    {{expirationDate}}
+  </view>
+</view>
+</modal-accept>
 <modal-accept-cancel
   content="{{descriptionInformationModal}}"
   visible="{{modalVisibleInfo}}"
