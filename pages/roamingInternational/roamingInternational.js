@@ -33,7 +33,13 @@ Page({
       "https://apiselfservice.co/M3/Empresas/Postpago/DisableRoamingPacket/",
     urlDisableRoamingService:
       "https://apiselfservice.co/M3/Postpago/Roaming/desactivarServicio/",
-      
+    ////// Martin 
+    errorVisible: false,
+    errorVisible2: false,
+    errorVisible3: false,
+    webViewUrl:
+      "https://www.claro.com.co/personas/servicios/servicios-moviles/roaming/"
+
   },
 
   onReady() {
@@ -80,7 +86,8 @@ Page({
     if (isActiveService === "1") {
       this.setData({
         switchServiceState: true,
-        isActive: isActiveService
+        isActive: isActiveService,
+        errorVisible: true
       });
     }
 
@@ -247,5 +254,32 @@ Page({
     my.navigateTo({
       url: "/pages/soluciones-moviles/roaming-international/expiration-date-roaming/expiration-date-roaming?isActive=" + this.data.isActive
     });
-  }
+  },
+
+  ///Martin
+
+  redirect(){
+    my.navigateTo({
+      url: `/pages/web-view/web-view?url=${this.data.webViewUrl}`
+    });
+  },
+  handleClose() {
+    this.setData({
+      errorVisible: false,
+      errorVisible2: true
+    });
+  },
+  handleCloseMod2() {
+    this.setData({
+      errorVisible2: false,
+      errorVisible3: true
+    });
+  },
+  handleCloseMod3() {
+    this.setData({
+      errorVisible: false,
+      errorVisible2: false,
+      errorVisible3: false
+    });
+  },
 });

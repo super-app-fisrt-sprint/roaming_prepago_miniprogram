@@ -112,7 +112,30 @@
   primaryButtonText="Cerrar"
   onPrimaryButtonTap="handleCloseRoaming"
 />
-
+<pop-up-error
+  content="¿Deseas comprar paquetes?"
+  visible="{{errorVisible}}"
+  primaryButtonText="Si, comprar"
+  secondaryButtonText="No gracias"
+  onPrimaryButtonTap=""
+  onClose="handleClose"
+  onSecondaryButtonTap="handleClose"
+/>
+<pop-up-continuar
+  content="Al activar el roaming, sin comprar un paquete; los datos, minutos y SMS se cobraran al precio de la tarifa del pais."
+  visible="{{errorVisible2}}"
+  primaryButtonText="Continuar"
+  onPrimaryButtonTap="redirect"
+  onClose="handleCloseMod2"
+  onSecondaryButtonTap="handleCloseMod2"
+/>
+<pop-up-accept style=""
+  content="Tu servicio de Roaming internacional ha sido activado exitosamente en la linea {{lineNumber}} reinicia el equipo asociado a esa linea para terminar el proceso con la fecha de caducidad {{expirationDate}}"
+  visible="{{errorVisible3}}"
+  onClose="handleClose"
+  primaryButtonText="Aceptar"
+  onPrimaryButtonTap="handleCloseMod3"
+/>
   <loading-component a:if="{{showLoading}}" />
 </view>
 
