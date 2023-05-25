@@ -79,14 +79,6 @@
     </view>
   </view>
 
-  <view a:if="{{switchServiceState}}" class="text-demo-text text-center ">
-    <text >
-      El limite de crédito para el servicio de datos es de ${{credictValue}}.Ten en cuenta que debes contar con el saldo suficiente en el limite de 
-      crédito para adquirir Paquetes de datos de Roaming Internacional
-    </text>
-  </view>
-
-
  <modal-accept
     content="{{descriptionError}}"
     visible="{{modalVisibleError}}"

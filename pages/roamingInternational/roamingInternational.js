@@ -55,7 +55,6 @@ Page({
       .then(res => {
         console.log("Retrieve Service--->",res)
         this.retrieveServiceValidation(res);
-        // this.packageInstalledService();
       })
       .catch(error => {
         this.hideLoading();
@@ -86,84 +85,6 @@ Page({
     }
 
     this.hideLoading();
-  },
-  packageInstalledService() {
-    const errorGlobalSession = getApp().globalData.sessionError;
-    requestApiCheckInstalled(this.data.urlChekingInstalled, this)
-      .then(res => {
-        console.log("succes---->", res);
-        if (res.data.error == 1) {
-          this.setData({
-            redirectServices:"redirectHomeServices",
-            descriptionError:"En este momento no podemos atender esta solicitud, intenta nuevamente",
-             modalVisibleError:true,
-          })
-        } else {
-          this.packageInstalledValidation(res);
-        }
-      })
-      .catch(error => {
-        console.log("error--->", error);
-        this.hideLoading();
-        if (
-          error.status === 401 &&
-          error.data &&
-          error.data.response === "Error de acceso, tiempo de sesion agotado"
-        ) {
-          this.setData({
-            redirectServices:"redirectLoginServices",
-            descriptionError:this.data.sessionError,
-             modalVisibleError:true,
-          })
-        }
-        else if (error.error == 13) {
-          this.setData({
-            descriptionError:"No es posible obtener información, por favor inténtelo de nuevo más tarde",
-            redirectServices:"redirectHomeServices",
-             modalVisibleError:true,
-          })
-        } else {
-          
-          this.setData({
-            descriptionError:this.data.sessionError,
-            redirectServices:"redirectLoginServices",
-            modalVisibleError:true,
-          })
-        }
-      });
-  },
-  packageInstalledValidation(res) {
-    const packageInstallList = res.data.response.map(item => {
-      const { name, description, codServ } = item;
-      return { name, description, codServ };
-    });
-    this.setData({
-      packagedInstalled: packageInstallList,
-      loaded: true,
-      codServ: "test"
-    });
-    console.log("request roaming success");
-    this.hideLoading();
-  },
-  packageDisableRoaming(disableData) {
-    requestApiDisableRoamingPackage(
-      this.data.urlDisableRoamingPacket,
-      disableData,
-      this
-    )
-      .then(res => {
-        console.log(res);
-      })
-      .catch(error => {
-        my.hideLoading({
-          page: this
-        });
-        this.setData({
-          redirectServices:"redirectLoginServices",
-          descriptionError:this.data.sessionError,
-           modalVisibleError:true,
-        })
-      });
   },
   disableRoamingService(line) {
     requestApiDisableRoamingService(
