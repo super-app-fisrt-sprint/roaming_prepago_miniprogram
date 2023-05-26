@@ -333,4 +333,11 @@ Page({
       errorVisible3: false
     });
   },
+
+  //Juan St
+  redirectToBuyPrepaidPackages(){
+    my.navigateTo({
+      url: '/pages/buy-international-roaming-package/buy-international-roaming-package'
+    });
+  }
 });

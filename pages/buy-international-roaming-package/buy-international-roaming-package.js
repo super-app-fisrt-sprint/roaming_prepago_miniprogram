@@ -35,6 +35,15 @@ Page({
   onLoad(query) {
     this.getPackagesPrepaidRoamingInt();
   },
+
+  onReady() {
+    my.setNavigationBar({
+      title: "Mi Claro",
+      success() {},
+      fail() {}
+    });
+  },
+
   onShowMenuContent() {
     this.setData({
       showMenuContent: !this.data.showMenuContent,

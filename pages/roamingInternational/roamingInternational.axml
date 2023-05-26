@@ -72,7 +72,7 @@
       style="padding-top:10px"
     >
       <view style="width:90%">
-        <button class="btn-btn-compra-paquetes-roaming">
+        <button onTap="redirectToBuyPrepaidPackages" class="btn-btn-compra-paquetes-roaming">
              Comprar paquetes
         </button>
       </view>

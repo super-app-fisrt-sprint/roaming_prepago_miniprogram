@@ -24,7 +24,7 @@ export function sendActivatePackageRequest(that, packageCode) {
         'x-dynatrace': 'MT_3_1_3854649721_285-0_d86713a4-a872-43d8-924d-5b4c0db0293f_72_8615_225',
         'Content-Type': 'application/json; charset=UTF-8',
         'Content-Length': '57',
-        'X-MC-MAIL': app.globalData.emailAccount,
+        'X-MC-MAIL': app.globalData.email,
         'X-MC-SO': 'android',
         'X-Carrier': 'Android',
         'X-Wifi': false,
