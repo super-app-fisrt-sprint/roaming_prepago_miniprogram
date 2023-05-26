@@ -1,0 +1,148 @@
+<view class="container">
+  <view class="row">
+    <view class="col-1">
+      <image
+        class="image"
+        mode="widthFix"
+        style="width:25px; height: 25px;"
+        src="https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/captive_portal/default/48px.svg"
+        alt="Descripción de la imagen"
+      />
+    </view>
+    <view class="col-7" style="font-size:14px">Administra tu Roaming</view>
+    <view class="col-4">
+      <view class="row">
+        <view class="col">
+          <image
+            class="icon-red"
+            mode="widthFix"
+            style="width:30px; height: 30px;"
+            src="/assets/icons/arrow_right.svg"
+            alt="arrow-right-icon"
+          />
+        </view>
+        <view class="col-8" style="font-size:14px">
+          {{lineNumber}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+<view class="advice-center">
+  <icon class="icon-exclamation" type="ExclamationTriangleOutline"  />
+  <view class="text-muted" style="margin-top:20rpx;margin-bottom:20rpx;">
+    Para realizar la activación de tu servicio de Roaming Internacional debes seleccionar una fecha de caducidad del servicio.
+  </view>
+  <view>
+    <radio-group onChange="onRadioChanged" class="advice-options" name="radio-group">
+      <block a:for="{{roamingActivationOptions}}">
+        <label class="advice-radio">
+          <radio color="#FF0000" value="{{item.index}}" />
+          {{item.text}}
+        </label>
+      </block>
+    </radio-group>
+  </view>
+
+  <block a:if="{{ isDatePickerShowed }}">
+    <button class="btn-calendar" style="" type="default">
+      <view class="advice-button">
+        <image
+          style="width:50rpx; height:50rpx; margin:10px;"
+          mode="scaleToFill"
+          src="/assets/icons/calendar.svg"
+        />
+        <date-picker
+          style="margin-right:25px; color:black;"
+          format="DD/MM/YYYY"
+          cancelText="Cancelar"
+          okText="Seleccionar"
+          min="{{min}}"
+          max="{{max}}"
+          placeholder="Seleccionar"
+          onPickerChange="handlePickerChange"
+          onOk="handlePickerAccept"
+          onFormatLabel="handleFormatLabel"
+        >
+        </date-picker>
+      </view>
+
+    </button>
+
+  </block>
+
+</view>
+
+<view class="text-section">
+  <text>Luego de la activación del servicio de roaming internacional, recuerda adquirir un paquete de</text>
+  <text class="bold espaciado-text">datos y/o voz</text>
+  <text>de acuerdo a tu país de destino, ingresando por la opción de Comprar paquetes.</text>
+</view>
+
+
+<button type="default" class="btn-activate" data-field="customVisible" onTap="handleOpen">
+  {{textAcceptButton}}
+</button>
+
+<modal-accept-cancel
+  style="padding: 40px;white-space: pre-wrap;"
+  visible="{{customVisible}}"
+  onClose="handleClose"
+  primaryButtonText="Aceptar"
+  secondaryButtonText="Cerrar"
+  onPrimaryButtonTap="onAcceptButtonTap"
+  onSecondaryButtonTap="onCancelButtonTap"
+>
+  <view slot="content" style="color: #000">
+    <view style="font-weight:normal; padding-bottom:20px">
+      ¿Estás seguro que deseas {{textAcceptButton}} tu servicio de Roaming internacional?
+    </view>
+    <view style="font-weight:bold; padding-bottom:20px">
+      {{lineNumber}}
+    </view>
+    <view style="font-weight:normal; padding-bottom:20px">
+      con fecha de caducidad
+    </view>
+    <view style="font-weight:bold;">
+      {{fechaLimite}}
+    </view>
+  </view>
+</modal-accept-cancel>
+
+<modal-accept
+  visible="{{modalVisibleMessage}}"
+  onClose="handleClose"
+  primaryButtonText="Aceptar"
+  onPrimaryButtonTap="handleCloseAccept"
+>
+<view slot="content" style="color: #000">
+  <view style="font-weight:normal; padding-bottom:20px">
+    Tu servicio de Roaming Internacional se ha activado exitosamente para la linea:
+  </view>
+  <view style="font-weight:bold; padding-bottom:20px; color:var(--claro-color);">
+    {{lineNumber}}
+  </view>
+  <view style="font-weight:normal; padding-bottom:20px">
+    Reinicia el equipo asociado a esa línea para terminar el proceso
+  </view>
+  <view style="font-weight:normal; padding-bottom:10px">
+    Con la fecha de caducidad
+  </view>
+  <view style="font-weight:bold;color:var(--claro-color);">
+    {{fechaLimite}}
+  </view>
+</view>
+</modal-accept>
+
+<loading-component a:if="{{showLoading}}" />
+
+<modal-accept
+  content="{{descriptionError}}"
+  visible="{{modalVisibleError}}"
+  onClose="handleClose"
+  primaryButtonText="Aceptar"
+  onPrimaryButtonTap="handleClose"
+/>

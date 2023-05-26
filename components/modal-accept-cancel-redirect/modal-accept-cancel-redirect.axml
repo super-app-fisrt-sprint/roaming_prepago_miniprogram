@@ -1,0 +1,29 @@
+<view>
+  <view class="modal-container">
+    <modal
+    id="test"
+      title="{{title}}"
+      content="{{content}}"
+      visible="{{visible}}"
+      onClose="handleClose"
+      primaryButtonText="{{primaryButtonText}}"
+      secondaryButtonText="{{secondaryButtonText}}"
+      onPrimaryButtonTap="onAcceptButtonTap"
+      onSecondaryButtonTap="onCancelButtonTap"
+    >
+    <view class="footer-buttons" slot="footer"> 
+      <view>
+        <text class="link-text" onTap="onAcceptButtonTap">Consultar Informacion</text>
+      </view>     
+      <view class="button-container">
+        <button class="button" onTap="onCancelButtonTap">Continuar</button>
+      </view> 
+    </view>
+ 
+      <view class="container-modal" slot="header">
+        <icon class="icon" type="InformationCircleOutline" />
+       
+      </view>
+    </modal>
+  </view>
+</view>
