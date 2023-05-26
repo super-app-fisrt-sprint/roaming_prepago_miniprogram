@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "arrow-button": "/components/arrow-button/arrow-button",
+    "loading-component": "/components/loading-component/loading-component",
+    "card-button": "/components/card-button/card-button",
+    "popup": "../../node_modules/antd-mini/es/Popup/index",
+    "icon": "../../node_modules/antd-mini/es/Icon/index",
+    "modal-accept": "/components/modal-accept/modal-accept",
+    "modal-accept-cancel": "/components/modal-accept-cancel/modal-accept-cancel"
+  },
+  "styleIsolation": "apply-shared"
+}

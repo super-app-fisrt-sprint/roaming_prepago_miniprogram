@@ -1,0 +1,315 @@
+<view class="container">
+  <view class="row pt-1 pb-2">
+    <view class="col-1">
+      <image
+        class="image"
+        mode="widthFix"
+        style="width:30px; height: 35px;"
+        src="https://miclaroapp.com.co/archivos/catalogoIcons/recargas.png"
+        alt="Descripción de la imagen"
+      />
+    </view>
+    <view class="col-7" style="font-size:14px;">Compra de paquetes de Roaming</view>
+    <view class="col-4">
+      <view class="row">
+        <view class="col">
+          <image
+            class="icon-red"
+            mode="widthFix"
+            style="width:30px; height: 30px;"
+            src="/assets/icons/arrow_right.svg"
+            alt="arrow-right-icon"
+          />
+        </view>
+        <view class="col-8" style="font-size:14px">
+          {{lineNumber}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="row">
+    <arrow-button
+      onTap="onShowMenuContent"
+      style=""
+      stateImg={{true}}
+      imgSrc="https://miclaroapp.com.co/archivos/catalogoIcons/recargas.png"
+      iconArrowSrc={{iconMenuContent}}
+      dataInfo=""
+    >
+      <view class="row">
+        <text style="font-size:16px">Paquetes de datos</text>
+      </view>
+      <view class="row">
+        <text>Paquetes de datos</text>
+      </view>
+    </arrow-button>
+  </view>
+
+  <view a:if="{{showMenuContent}}" class="row mt-4">
+    <!--Paquetes diarios-->
+    <view class="col-10">
+      <text
+        onTap="onShowDailyPackages"
+        class="pl-2 text-bold subcategoriesContent"
+        style=""
+      >
+        Oferta de paquetes por día
+      </text>
+    </view>
+    <view style="text-align:center" class="pr-1 col-2">
+      <image
+        class="image"
+        mode="widthFix"
+        style="width:40px; height: 40px;"
+        src={{iconDailyPackages}}
+        alt="Descripción de la imagen"
+        onTap="onShowDailyPackages"
+      />
+    </view>
+
+    <view class="divider"></view>
+
+    <view a:if="{{ showDailyPackages }}">
+      <block a:for="{{ dailyPackages }}" a:for-item="item">
+        <view class="packagesContainer pt-2 pb-2">
+          <!--<view class="featuredPackageBanner"><image src="/assets/icons/paquetes.svg" class="imageFeaturedPackage" /></view>-->
+          <view class="featuredPackageContainer">
+            <view class="featuredPackageContainerContent">
+              <view class="packageNameContent">
+                <text class="packageName"> {{item.nombre}}</text>
+              </view>
+              <view class="packageValueContainer mt-2">
+                <text class="packageValue">$ {{item.precio}}</text>
+                <text class="packageValueText">Costo paquete</text>
+              </view>
+              <view class="availabilityTextContainer mt-5">
+                <text class="availabilityText">{{item.cantidad}}</text>
+              </view>
+              <view class="mt-3">
+                <text
+                  class="packageDescriptionButton"
+                  onTap="openPackageDescription"
+                  data-selectedPackageIndex="{{item.catalogoPaqueteRoamingID}}"
+                >
+                  Descripción del paquete
+                </text>
+              </view>
+              <button
+                data-packageId="{{item.catalogoPaqueteRoamingID}}"
+                size="default"
+                type="primary"
+                class="activatePackageButton mt-2"
+                onTap="onShowModalActivatePackage"
+              >
+                <text class="activatePackageButtonText">Activar paquete</text>
+              </button>
+
+            </view>
+            <!--<button
+              data-packageId="{{item.catalogoPaqueteRoamingID}}"
+              size="default"
+              type="primary"
+              class="activatePackageButton"
+              onTap="onShowModalActivatePackage"
+            ><text class="activatePackageButtonText">Activar paquete</text></button>-->
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!--Paquetes por período-->
+    <view class="col-10">
+      <text onTap="onShowPeriodPackages" class="pl-2 text-bold subcategoriesContent">
+        Oferta de paquetes por período de tiempo
+      </text>
+    </view>
+    <view style="text-align:center" class="pr-1 col-2">
+      <image
+        class="image"
+        mode="widthFix"
+        style="width:40px; height: 40px;"
+        src={{iconPeriodPackages}}
+        alt="Descripción de la imagen"
+        onTap="onShowPeriodPackages"
+      />
+    </view>
+
+    <view class="divider"></view>
+
+    <view a:if="{{ showPeriodPackages }}">
+      <block a:for="{{ periodPackages }}" a:for-item="item">
+        <view class="packagesContainer pt-2 pb-2">
+          <!--<view class="featuredPackageBanner"><image src="/assets/icons/paquetes.svg" class="imageFeaturedPackage" /></view>-->
+          <view class="featuredPackageContainer">
+            <view class="featuredPackageContainerContent">
+              <view class="packageNameContent">
+                <text class="packageName"> {{item.nombre}}</text>
+              </view>
+              <view class="packageValueContainer mt-2">
+                <text class="packageValue">$ {{item.precio}}</text>
+                <text class="packageValueText">Costo paquete</text>
+              </view>
+              <view class="availabilityTextContainer mt-5">
+                <text class="availabilityText">{{item.cantidad}}</text>
+              </view>
+              <view class="mt-3">
+                <text
+                  class="packageDescriptionButton"
+                  onTap="openPackageDescription"
+                  data-selectedPackageIndex="{{item.catalogoPaqueteRoamingID}}"
+                >
+                  Descripción del paquete
+                </text>
+              </view>
+              <button
+                data-packageId="{{item.catalogoPaqueteRoamingID}}"
+                size="default"
+                type="primary"
+                class="activatePackageButton mt-2"
+                onTap="onShowModalActivatePackage"
+              >
+                <text class="activatePackageButtonText">Activar paquete</text>
+              </button>
+
+            </view>
+            <!--<button
+              data-packageId="{{item.catalogoPaqueteRoamingID}}"
+              size="default"
+              type="primary"
+              class="activatePackageButton"
+              onTap="onShowModalActivatePackage"
+            ><text class="activatePackageButtonText">Activar paquete</text></button>-->
+          </view>
+        </view>
+
+
+
+      </block>
+    </view>
+  </view>
+</view>
+
+<loading-component a:if="{{showLoading}}" />
+
+<popup
+  visible="{{popupVisibleFeaturedPackages}}"
+  height="{{500}}"
+  position="bottom"
+  animation="{{animation}}"
+>
+
+  <view class="contentCenter">
+    <image
+      class=""
+      mode="widthFix"
+      style="width: 20%"
+      src="/assets/claro.png"
+      alt="Descripción de la imagen"
+    />
+  </view>
+  <view class="textPopup">
+    <text>
+      ¿Estás seguro que deseas activar el siguiente \n paquete y agregarlo al numero?
+    </text>
+  </view>
+  <view class="phonePopup mt-5">
+    {{lineNumber}}
+  </view>
+
+  <view class="packagesContainer mt-5">
+    <view class="featuredPackageContainer" style="width: 90%">
+      <view class="featuredPackageContainerContent">
+        <view class="packageNameContent">
+          <text class="packageName"> {{currentPackageToActivate.nombre}}</text>
+        </view>
+        <view class="packageValueContainer mt-5">
+          <text class="packageValue">$ {{currentPackageToActivate.precio}}</text>
+          <text class="packageValueText">Costo paquete</text>
+        </view>
+        <view>
+          <text class="availabilityText">{{currentPackageToActivate.cantidad}}</text>
+        </view>
+        <view class="mt-3">
+          <text
+            class="packageDescriptionButton"
+            onTap="openPackageDescription"
+            data-selectedPackageIndex="{{currentPackageToActivate.catalogoPaqueteRoamingID}}"
+          >
+            Descripción del paquete
+          </text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="acceptConditionsContainer">
+    <view class="packageDescriptionButtonModal" onTap="goToRoamingTermsAndConditions">
+      Acepto Términos y Condiciones del servicio Roaming
+    </view>
+    <switch
+      class="switchTerminos"
+      color="red"
+      checked="{{isButtonModalActive}}"
+      value="{{isButtonModalActive}}"
+      onChange="onChange"
+    />
+  </view>
+  <view class="paymentMethod">
+    <text style="color:gray; padding-left:10px; text-align:left; font-size:13px; font-weight:bold;">
+      Método de pago
+    </text>
+    <text style="color:gray; padding-right:32px; text-align:rigth; font-size:13px">
+      Activar contra saldo
+    </text>
+  </view>
+  <view >
+    <button
+      size="default"
+      style="width:340px ; margin:20px; margin-left:30px; border-radius:10px"
+      disabled="{{!isButtonModalActive}}"
+      onTap="onActivateFeaturedPackage"
+      class="button {{isButtonModalActive  ? 'active' : 'inactive'}}"
+    >
+
+      <text class="activatePackageButtonText">Activa paquete</text>
+    </button>
+  </view>
+  <icon style="position:absolute;right:12px;top:12px;" type="CloseOutline" onTap="handleClose" />
+</popup>
+
+<modal-accept
+  visible="{{modalAcceptVisible}}"
+  onClose="handleCloseModalAccept"
+  primaryButtonText="Cerrar"
+  onPrimaryButtonTap="handleCloseModalAccept"
+>
+  <view slot="content" style="color: #000">
+    <view style="font-weight:normal; padding-bottom:20px">
+      {{currentPackageViewDescription}}
+    </view>
+  </view>
+</modal-accept>
+
+
+<modal-accept-cancel
+  style="padding: 40px;white-space: pre-wrap;"
+  visible="{{modalAcceptCancelVisible}}"
+  onClose="handleClose"
+  primaryButtonText="Activar"
+  secondaryButtonText="Cancelar"
+  onPrimaryButtonTap="onAcceptButtonTap"
+  onSecondaryButtonTap="onCancelButtonTap"
+>
+  <view slot="content" style="color: #000">
+    <view style="font-weight:normal; padding-bottom:20px">
+      ¿Estás seguro que deseas activar el paquete de Roaming en tu cuenta?
+    </view>
+    <view style="font-weight:bold; padding-bottom:20px">
+      {{lineNumber}}
+    </view>
+    <view style="font-weight:normal; padding-bottom:20px">
+      Recuerda que este cambio se verá reflejado inmediatamente en tu cuenta
+    </view>
+
+  </view>
+</modal-accept-cancel>

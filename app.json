@@ -1,9 +1,10 @@
 {
   "subPackageBuildType": "shared",
   "pages": [
-    "pages/index/index"
+    "pages/buy-international-roaming-package/buy-international-roaming-package",
+    "pages/terms-conditions/terms-conditions"
   ],
   "window": {
-    "defaultTitle": "My App"
+    "defaultTitle": "Mi Claro"
   }
 }
