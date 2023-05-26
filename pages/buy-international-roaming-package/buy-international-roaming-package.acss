@@ -549,11 +549,6 @@
   font-weight: 600;
 }
 
-.packageValueText {
-  color: #424242c4;
-  font-size: xx-small;
-}
-
 .packageDescriptionButton {
   color: #38a2b7;
   font-size: smaller;
@@ -587,7 +582,6 @@
 .activatePackageButton {
   background-color: #d52b1e;
   width: 100%;
-  height: ;
   margin-bottom: 8px;
   border-radius: 10px;
   border-color: #d52b1e;
@@ -1056,8 +1050,6 @@
   text-decoration: underline;
 }
 
-.availabilityTextContainer {}
-
 .availabilityText {
   font-weight: bold;
   font-size: smaller;
@@ -1080,18 +1072,6 @@
 .voicePackage {
   font-weight: bold;
 }
-
-/*.activatePackageButton {
-  background-color: #d52b1e;
-  width: 228px;
-  margin-bottom: 8px;
-  border-radius: 10px;
-  border-color: #d52b1e;
-}
-
-.activatePackageButtonText {
-  color: white;
-}*/
 
 .input {
   margin-top: 10px;
