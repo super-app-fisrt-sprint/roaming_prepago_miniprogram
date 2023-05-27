@@ -34,7 +34,7 @@
 <view class="advice-center">
   <icon class="icon-exclamation" type="ExclamationTriangleOutline"  />
   <view class="text-muted" style="margin-top:20rpx;margin-bottom:20rpx;">
-    Para realizar la activación de tu servicio de Roaming Internacional debes seleccionar una fecha de caducidad del servicio.
+    Selecciona la vigencia en la que deseas activar el servicio de roaming internacional en tu línea 
   </view>
   <view>
     <radio-group onChange="onRadioChanged" class="advice-options" name="radio-group">

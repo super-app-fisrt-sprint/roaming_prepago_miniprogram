@@ -37,7 +37,7 @@ Page({
     let isActive = query.isActive;
     if (isActive === '1') {
       this.setData({
-        textAcceptButton: "Actualizar",
+        textAcceptButton: "Activar",
         isActiveRoaming: true
       })
     } else {

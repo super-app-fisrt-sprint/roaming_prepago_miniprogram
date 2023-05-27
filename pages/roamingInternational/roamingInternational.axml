@@ -13,8 +13,8 @@
     </view>
     <view>
       <text class="text-demo-text">
-       Navega,chatea,habla y comparte lo mejor de tu viaje en el exterior con roaming internacional Claro.
-      </text>
+        <text style="color:black;font-weight:bold;padding-right:3px">Navega, chatea, habla </text> y comparte lo mejor de tu viaje en el exterior con roaming internacional Claro.
+       </text>
     </view>
   
   </view>
