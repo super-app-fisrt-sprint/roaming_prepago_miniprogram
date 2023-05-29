@@ -132,7 +132,7 @@
 
 <modal-accept
   visible="{{errorVisible3}}"
-  onClose="handleClose"
+  onClose="handleCloseMod3"
   primaryButtonText="Aceptar"
   onPrimaryButtonTap="handleCloseMod3"
 >

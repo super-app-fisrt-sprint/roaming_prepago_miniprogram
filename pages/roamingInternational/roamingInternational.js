@@ -47,16 +47,7 @@ Page({
 
   onLoad(){
 
-    //Switch este en true activaRoaming == false
-    my.setStorage({
-      key: 'roamingPrepago',
-      data: {
-        activaRoaming: false
-      },
-      success: function() {
-        
-      }
-    });
+   
   },
   onReady() {
     my.setNavigationBar({
@@ -264,6 +255,7 @@ Page({
       // errorVisible2: false,
       // errorVisible3: false
     });
+    
   },
   // Disbabling roaming service
   handleCloseRoaming() {
@@ -331,6 +323,15 @@ Page({
       errorVisible: false,
       errorVisible2: false,
       errorVisible3: false
+    });
+
+    my.setStorage({
+      key: 'roamingPrepago',
+      data: {
+        activaRoaming: false
+      },
+      success: function() {
+      }
     });
   },
 
