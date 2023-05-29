@@ -62,7 +62,7 @@
 
   <view a:if="{{switchServiceState}}" class="text-demo-text text-center ">
     <text >
-      Te invitamos a revisar nuestra oferta de paquetes de Roaming Internacional para que permanezcas en tus viajes a un menor precio.
+      Te invitamos a revisar nuestra oferta de paquetes de Roaming Internacional para que permanezcas comunicado en tus viajes a un menor precio.
     </text>
   </view>
   <view class="container-item-center">
