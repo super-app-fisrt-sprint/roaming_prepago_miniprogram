@@ -3,7 +3,7 @@ App({
     console.info("App onLaunch");
   },
   onShow(options) {},
-    globalData: {
+  globalData: {
     DocumentType:1,//1 es cc ,si es 2 es nit 
     tipoCanalID:"10",
     email:"gabrielsan98@hotmail.com",
