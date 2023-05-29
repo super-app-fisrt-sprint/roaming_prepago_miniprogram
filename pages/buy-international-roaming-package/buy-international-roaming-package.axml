@@ -210,7 +210,7 @@
   </view>
   <view class="textPopup">
     <text>
-      ¿Estás seguro que deseas activar el siguiente \n paquete y agregarlo al numero?
+      ¿Estás seguro que deseas adquirir el siguiente \n paquete y agregarlo al numero?
     </text>
   </view>
   <view class="phonePopup mt-5">
@@ -283,8 +283,8 @@
   primaryButtonText="Cerrar"
   onPrimaryButtonTap="handleCloseModalAccept"
 >
-  <view slot="content" style="color: #000">
-    <view style="font-weight:normal; padding-bottom:20px">
+  <view slot="content" style="color: #000; line-height:100%">
+    <view style="font-weight:normal; padding-bottom:20px;">
       {{currentPackageViewDescription}}
     </view>
   </view>

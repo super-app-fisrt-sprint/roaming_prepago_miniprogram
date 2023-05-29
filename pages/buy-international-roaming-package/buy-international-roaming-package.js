@@ -79,14 +79,12 @@ Page({
             categories: res.data.response.categorias,
           });
           this.classifyPackagesByCategory(this.data.categories, res.data.response.paquetes);
-        }
-        /*else {
-                 this.setData({
-                   descriptionError: res.data.response,
-                   modalVisibleError: true,
-                 });
-               }*/
-        ;
+        } else {
+          this.setData({
+            descriptionError: res.data.response,
+            modalVisibleError: true,
+          });
+        };
       })
       .catch(error => {
         this.hideLoading();
@@ -112,7 +110,7 @@ Page({
         } else {
           this.setData({
             modalAcceptVisible: true,
-            currentPackageViewDescription: 'En este momento no podemos atender esta solicitud, intenta nuevamente',
+            currentPackageViewDescription: res.data.response,
           });
         };
       })
