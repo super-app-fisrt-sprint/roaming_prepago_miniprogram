@@ -62,9 +62,8 @@ Page({
     my.getStorage({
       key: 'roamingPrepago',
       success: function(res) {
-
-        console.log("STORAGE:", res);
-        if(res.data.activaRoaming) {
+        console.log("Roaming PopUp", res.data);
+        if(res.data.activaRoaming === true) {
           that.setData({
             errorVisible: true
           });
