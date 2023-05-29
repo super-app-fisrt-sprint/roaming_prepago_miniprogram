@@ -13,8 +13,8 @@
     </view>
     <view>
       <text class="text-demo-text">
-       Navega,chatea,habla y comparte lo mejor de tu viaje en el exterior con roaming internacional Claro.
-      </text>
+        <text style="color:black;font-weight:bold;padding-right:3px">Navega, chatea, habla </text> y comparte lo mejor de tu viaje en el exterior con roaming internacional Claro.
+       </text>
     </view>
   
   </view>
@@ -62,7 +62,7 @@
 
   <view a:if="{{switchServiceState}}" class="text-demo-text text-center ">
     <text >
-      Te invitamos a revisar nuestra oferta de paquetes de Roaming Internacional para que permanezcas en tus viajes a un menor precio.
+      Te invitamos a revisar nuestra oferta de paquetes de Roaming Internacional para que permanezcas comunicado en tus viajes a un menor precio.
     </text>
   </view>
   <view class="container-item-center">
@@ -132,7 +132,7 @@
 
 <modal-accept
   visible="{{errorVisible3}}"
-  onClose="handleClose"
+  onClose="handleCloseMod3"
   primaryButtonText="Aceptar"
   onPrimaryButtonTap="handleCloseMod3"
 >
