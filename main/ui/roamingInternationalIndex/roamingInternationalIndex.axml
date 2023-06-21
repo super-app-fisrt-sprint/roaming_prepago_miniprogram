@@ -1,1 +1,1 @@
-<header-image image="../assets/logo-claro-blanco.svg" style="height:{{titleBarHeight + statusBarHeight + 10}}px" />
+<header-image-red image="../assets/super-app.svg" style="height:{{titleBarHeight + statusBarHeight + 10}}px" />

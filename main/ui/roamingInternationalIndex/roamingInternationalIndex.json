@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "header-image": "../components/headerImage/headerImage"
+    "header-image-red": "../components/HeaderImageRed/headerImageRed"
   },
   "styleIsolation": "apply-shared"
 }
