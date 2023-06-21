@@ -1,4 +1,0 @@
-<button class="btn-image" onTap="onButtonTap">
-  <image a:if="{{stateImg}}" mode="scaleToFill" src="{{imgSrc}}"/>
-  <text><slot>Button Generic</slot></text>
-</button>

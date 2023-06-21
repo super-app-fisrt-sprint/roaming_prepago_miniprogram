@@ -1,0 +1,9 @@
+<svg id="icono-file-text-ppal" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Grupo_26412" data-name="Grupo 26412">
+    <rect id="Rectángulo_13105" data-name="Rectángulo 13105" width="24" height="24" fill="none"/>
+    <path id="Trazado_28070" data-name="Trazado 28070" d="M115.938,249.615a.994.994,0,0,0-.215-.322l-6-6a1.009,1.009,0,0,0-.707-.293h-8a3,3,0,0,0-3,3v16a3,3,0,0,0,3,3h12a3,3,0,0,0,3-3V250a.992.992,0,0,0-.078-.385m-5.922-3.2L112.6,249h-2.587Zm3,16.589h-12a1,1,0,0,1-1-1V246a1,1,0,0,1,1-1h7v5a1,1,0,0,0,1,1h5v11a1,1,0,0,1-1,1" transform="translate(-94.988 -242.313)" fill="gray"/>
+  </g>
+  <path id="Trazado_28071" data-name="Trazado 28071" d="M111.016,254h-8a1,1,0,0,0,0,2h8a1,1,0,1,0,0-2" transform="translate(-94.988 -242.313)" fill="gray"/>
+  <path id="Trazado_28072" data-name="Trazado 28072" d="M111.016,258h-8a1,1,0,0,0,0,2h8a1,1,0,1,0,0-2" transform="translate(-94.988 -242.313)" fill="gray"/>
+  <path id="Trazado_28073" data-name="Trazado 28073" d="M103.016,252h2a1,1,0,1,0,0-2h-2a1,1,0,0,0,0,2" transform="translate(-94.988 -242.313)" fill="gray"/>
+</svg>

@@ -1,0 +1,39 @@
+<view>
+  <view class="modal-container">
+    <modal
+      title="{{title}}"
+      content="{{content}}"
+      visible="{{visible}}"
+      onClose="handleClose"
+      primaryButtonText="{{primaryButtonText}}"
+      secondaryButtonText="{{secondaryButtonText}}"
+      onPrimaryButtonTap="onAcceptButtonTap"
+      onSecondaryButtonTap="onCancelButtonTap"
+    >
+      <view class="container-modal" slot="header">
+        <icon class="icon" type="InformationCircleOutline" />
+      </view>
+
+
+      <view class="ant-modal-body-content" slot="content">
+        
+        <view class="description-title" a:if="{{ descriptionTitleVisible }}">
+          <text >{{descriptionTitle}}</text>
+        </view>
+         
+
+        <view class="body-content">
+          <icon class="icon" type="InformationCircleOutline" style="font-size: 30px"/>
+          <slot name="content"> {{content}}</slot>
+        </view>
+        
+      </view>
+
+
+     <view class="modal-footer" slot="footer">
+      <button class="modal-button button-accept" onTap="onAcceptButtonTap">{{primaryButtonText}}</button>
+      <button class="modal-button button-cancel" onTap="onCancelButtonTap">{{secondaryButtonText}}</button>
+     </view>
+    </modal>
+  </view>
+</view>

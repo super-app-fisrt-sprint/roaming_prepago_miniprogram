@@ -1,0 +1,14 @@
+<svg id="Icono-fecha_limite" data-name="Icono-fecha limite" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_13221" data-name="Rectángulo 13221" width="20.188" height="20.187" transform="translate(0 0)" fill="none"/>
+    </clipPath>
+  </defs>
+  <rect id="Rectángulo_13220" data-name="Rectángulo 13220" width="24" height="24" fill="none"/>
+  <g id="Grupo_26609" data-name="Grupo 26609" transform="translate(2 1.999)">
+    <g id="Grupo_26608" data-name="Grupo 26608" clip-path="url(#clip-path)">
+      <path id="Trazado_38747" data-name="Trazado 38747" d="M10.094,0A10.094,10.094,0,1,0,20.189,10.094,10.107,10.107,0,0,0,10.094,0m0,18.387a8.293,8.293,0,1,1,8.294-8.293,8.3,8.3,0,0,1-8.294,8.293" fill="#187385"/>
+      <path id="Trazado_38748" data-name="Trazado 38748" d="M13.608,9.493H10.694V4.673a.9.9,0,1,0-1.8,0v5.72a.9.9,0,0,0,.9.9h3.814a.9.9,0,0,0,0-1.8" fill="#187385"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+<svg id="icono-consulta_consumos-ppal" data-name="icono-consulta consumos-ppal" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_13140" data-name="Rectángulo 13140" width="21.926" height="22" fill="gray"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_26412" data-name="Grupo 26412">
+    <rect id="Rectángulo_13105" data-name="Rectángulo 13105" width="24" height="24" fill="none"/>
+    <g id="Grupo_26487" data-name="Grupo 26487" transform="translate(1.037 1)">
+      <g id="Grupo_26486" data-name="Grupo 26486" transform="translate(0 0)" clip-path="url(#clip-path)">
+        <path id="Trazado_38704" data-name="Trazado 38704" d="M21.624,17.485l-2.282-2.214a5.039,5.039,0,0,0-2.452-7.695V3.2A3.2,3.2,0,0,0,13.7,0H3.194A3.2,3.2,0,0,0,0,3.2V18.807A3.2,3.2,0,0,0,3.194,22H13.7a3.2,3.2,0,0,0,3.194-3.194V17.113h0a5.05,5.05,0,0,0,1.008-.481l2.345,2.275a.991.991,0,1,0,1.38-1.423M18.3,12.346a3.094,3.094,0,1,1-3.093-3.094A3.1,3.1,0,0,1,18.3,12.346m-3.093,5.078c-.1,0-.2-.024-.3-.03v1.414a1.211,1.211,0,0,1-1.21,1.209H3.194a1.21,1.21,0,0,1-1.209-1.209V3.2a1.21,1.21,0,0,1,1.209-1.21H13.7a1.211,1.211,0,0,1,1.21,1.21V7.3c.1-.005.2-.03.3-.03a4.578,4.578,0,0,1,.884.09,5.079,5.079,0,1,0,0,9.977,4.578,4.578,0,0,1-.884.09" transform="translate(0 0)" fill="gray"/>
+        <path id="Trazado_38705" data-name="Trazado 38705" d="M3.7,6.688h6.676a.992.992,0,0,0,0-1.984H3.7a.992.992,0,1,0,0,1.984" transform="translate(0.12 0.208)" fill="gray"/>
+        <path id="Trazado_38706" data-name="Trazado 38706" d="M7.356,9.148H3.7a.992.992,0,0,0,0,1.984H7.356a.992.992,0,1,0,0-1.984" transform="translate(0.12 0.404)" fill="gray"/>
+        <path id="Trazado_38707" data-name="Trazado 38707" d="M7.356,13.594H3.7a.992.992,0,0,0,0,1.984H7.356a.992.992,0,0,0,0-1.984" transform="translate(0.12 0.6)" fill="gray"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "am-icon": "../../../../node_modules/antd-mini/es/Icon/index",
+    "mask": "../../../../node_modules/antd-mini/es/Mask/index",
+    "loading": "../../../../node_modules/antd-mini/es/Loading/index"
+  }
+}

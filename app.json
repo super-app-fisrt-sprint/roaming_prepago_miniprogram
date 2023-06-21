@@ -1,16 +1,14 @@
 {
   "subPackageBuildType": "shared",
   "pages": [
-    "pages/roamingInternational/roamingInternational",
-    "pages/web-view/web-view"    ,
-    "pages/roamingInternational/expiration-date-roaming/expiration-date-roaming",
-    "pages/buy-international-roaming-package/buy-international-roaming-package",
-    "pages/terms-conditions/terms-conditions"
+    "main/ui/roamingInternationalIndex/roamingInternationalIndex"
   ],
   "window": {
-    "defaultTitle": "SuperApp Claro",
+    "defaultTitle": "",
     "titleBarColor": "#121D24",
     "gestureBack": "YES",
+    "transparentTitle": "always",
+    "responsive": true,
     "showTitleLoading": "YES"
   }
 }
