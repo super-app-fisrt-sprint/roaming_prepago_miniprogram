@@ -1,16 +1,16 @@
-const enableDisableRoaming = require('../source/enableRoaming');
+const offerPackagesRoaming = require('../source/OfferPackages');
 const api = require('../../../config/remote/APIs');
 
-module.exports = class EnableDisableDataSourceRemote{
+module.exports = class OfferPackagesRoamingDataSourceRemote{
   static instance;
   constructor () {
-    if (EnableDisableDataSourceRemote.instance) {
-      return EnableDisableDataSourceRemote.instance
+    if (OfferPackagesRoamingDataSourceRemote.instance) {
+      return OfferPackagesRoamingDataSourceRemote.instance
     } else {
-      EnableDisableDataSourceRemote.instance = this
+      OfferPackagesRoamingDataSourceRemote.instance = this
     }
   }
-  async enableDisableRoaming(deviceSpect,expirationDate,min){
-    return await enableDisableRoaming.enableDisableRoaming(api.URL_BASE.URL_ENABLE_ROAMING,deviceSpect,expirationDate,min);
+  async offerPackagesRoaming(deviceSpect,offerPackages){
+    return await offerPackagesRoaming.offerPackagesRoaming(api.URL_BASE.URL_OFFER_ROAMING_ACTIVE,deviceSpect,offerPackages);
   }
 } 

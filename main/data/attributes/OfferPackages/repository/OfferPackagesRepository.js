@@ -1,16 +1,16 @@
-const EnableDisableRoamingDataSource = require("../datasource/EnableRoamingDataSource");
-const enableDisableRoamingDataSource = new EnableDisableRoamingDataSource();
+const OfferPackagesRoamingDataSource = require("../datasource/OfferPackagesDataSource");
+const offerPackagesRoamingDataSource = new OfferPackagesRoamingDataSource();
 
-module.exports = class EnableDisableRoamingRepository {
+module.exports = class OfferPackagesRoamingRepository {
   static instance;
   constructor() {
-    if (EnableDisableRoamingRepository.instance) {
-      return EnableDisableRoamingRepository.instance;
+    if (OfferPackagesRoamingRepository.instance) {
+      return OfferPackagesRoamingRepository.instance;
     } else {
-      EnableDisableRoamingRepository.instance = this;
+      OfferPackagesRoamingRepository.instance = this;
     }
   }
-  async enableDisableRoaming(deviceSpect,expirationDate,min) {
-    return  await enableDisableRoamingDataSource.enableDisableRoaming(deviceSpect,expirationDate,min);
+  async offerPackagesRoamingRemote(deviceSpect,offerPackagesRoaming) {
+    return  await offerPackagesRoamingDataSource.offerPackagesRoaming(deviceSpect,offerPackagesRoaming);
   }
 }

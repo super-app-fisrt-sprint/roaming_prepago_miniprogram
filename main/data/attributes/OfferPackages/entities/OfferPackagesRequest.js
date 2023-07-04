@@ -1,16 +1,15 @@
-module.exports = class EnableDisableRoamingRequest {
-  static instance;
+module.exports = class OfferPackagesRoaming {
   /**
    * Activar o desactivar roaming
    * @param {1 enable roaming, 0 disable roaming} activar 
    * @param {only for enable with expiration day} ExpirationDate 
    */
-  constructor (activar,ExpirationDate) {
-    
-    this.activar = activar;
-    this.ExpirationDate = ExpirationDate;
-  }
-  updateNumberAccount(newNumberAccount) {
-    Object.assign(this, params);
+  constructor (accountId,esMasivo,otraLinea,saldo,tipoPaquete,userProfile) {
+    this.accountId =accountId;
+    this.esMasivo =esMasivo ;
+    this.otraLinea =otraLinea ;
+    this.saldo =saldo ;
+    this.tipoPaquete = tipoPaquete;
+    this.userProfile =userProfile;
   }
 }

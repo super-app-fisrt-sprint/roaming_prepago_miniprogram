@@ -1,4 +1,5 @@
 const DeviceSpectViewModel = require("../../../domain/DeviceSpectViewModel");
+const getOfferPackagesRoaming = require("../../../domain/offerPackagesRoamingViewModel")
 Page({
   data: {
     titleBarHeight: 0,
@@ -24,5 +25,12 @@ Page({
       productType,
       type
     });
+
+    getOfferPackagesRoaming.getOfferPackagesRoaming(deviceSpect,accountId,"true","","-1","2","thatanspk@gmail.com").then(res=>{
+
+    })
+    .catch(error=>{
+
+    })
   },
 });

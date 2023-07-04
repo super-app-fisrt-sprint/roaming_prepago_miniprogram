@@ -1,4 +1,4 @@
-module.exports.enableDisableRoaming = enableDisableRoaming;
+module.exports.offerPackagesRoaming = offerPackagesRoaming;
 
 /**
  * 
@@ -6,7 +6,7 @@ module.exports.enableDisableRoaming = enableDisableRoaming;
  * @param {Caracteristicas del dispositivo} deviceSpect 
  * @param {Body (activar: 1 para activar 0 para desactivar, ExpirationDate: fecha para activar con limite,)} data 
  */
-function enableDisableRoaming(url,deviceSpect,expirationDate,min) {
+function offerPackagesRoaming(url,deviceSpect,offerPackagesRoaming) {
   return new Promise((resolve, reject) => {
     my.request({
       url: url,
@@ -14,14 +14,18 @@ function enableDisableRoaming(url,deviceSpect,expirationDate,min) {
       dataType: "json",
       data:{
         data: {
-          min:min,
-          fecha: expirationDate
+          AccountId:offerPackagesRoaming.accountId,
+          esMasivoesMasivo:offerPackagesRoaming.esMasivo,
+          otraLinea:offerPackagesRoaming.otraLinea,
+          saldo:offerPackagesRoaming.saldo,
+          tipoPaquete:offerPackagesRoaming.tipoPaquete,
+          UserProfileID:offerPackagesRoaming.userProfileID,
         }
       },
       headers: {
         "X-MC-SO":deviceSpect["X-MC-SO"],
         "X-SESSION-ID": deviceSpect["X-SESSION-ID"],
-        "X-MC-LINE": deviceSpect["X-MC-LINE"], 
+        "X-MC-LINE": offerPackagesRoaming.accountId,
         "X-MC-LOB": deviceSpect["X-MC-LOB"],
         "Content-Type": deviceSpect["Content-Type"],
         "X-MC-MAIL": deviceSpect["X-MC-MAIL"],
