@@ -9,7 +9,7 @@ Page({
     datePickerValue:"",
     min: new Date(),
     max: new Date('31/12/2025'),
-    fechaLimite: "31/12/2024",
+    fechaLimite: "",
     modalInfo: 
     {
       title: "",
@@ -31,14 +31,14 @@ Page({
     }
   },
   onLoad(e) {
-    const min = e.accountId.trim();
+    const accountId = e.accountId.trim();
     const deviceSpect = DeviceSpectViewModel.getInfoDeviceStorage();
     const { titleBarHeight, statusBarHeight } = my.getSystemInfoSync();
     this.setData({
       titleBarHeight,
       statusBarHeight,
       deviceSpect,
-      min
+      accountId
     });
     
   },
@@ -77,10 +77,10 @@ Page({
 
     this.showLoadings();
     let toast = this.data.toast;
-    const min=this.data.min;
-    let date="31/12/2024";
+    const accountId=this.data.accountId;
+    let date=this.data. fechaLimite;
     let dateOutSpace =date.replace(/\//g, '');
-    EnableRoamingViewModel.enableRoaming(this.data.deviceSpect,dateOutSpace,min)
+    EnableRoamingViewModel.enableRoaming(this.data.deviceSpect,dateOutSpace,accountId)
     .then(result => {
       this.hideLoading();
       if(!result.error){

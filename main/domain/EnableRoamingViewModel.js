@@ -32,3 +32,5 @@ async function enableRoaming(deviceSpect, expirationDate,min) {
   }
   return result;
 }
+
+module.exports.enableRoaming= enableRoaming;
