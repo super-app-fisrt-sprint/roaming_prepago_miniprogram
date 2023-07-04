@@ -1,1 +1,21 @@
-<header-image-red image="../assets/super-app.svg" style="height:{{titleBarHeight + statusBarHeight + 10}}px" />
+<header-personas image="../assets/super-app.svg" style="height:{{titleBarHeight + statusBarHeight + 15}}px" />
+
+<view class="roaming__personas__container">
+  <view class="roaming__personas__info">
+    <text class="roaming__personas__info__title">Activa Roaming</text>
+    <text class="roaming__personas__info__type">Prepago</text>
+    <view class="roaming__personas__info__divider" />
+  </view>
+
+  <view class="roaming__personas__container__data">
+    <view class="roaming__personas__container__card">
+      <text class="roaming__personas__container__number">{{accountId}}</text>
+      <view class="roaming__personas__container__recharge" onTap="redirectConsultaRoaming" data-num="{{accountId}}">
+        <text class="roaming__personas__container__recharges">Recargar</text>
+        <icon type="RightOutline" class="roaming__personas__container__icon" />
+      </view>
+
+    </view>
+
+  </view>
+</view>

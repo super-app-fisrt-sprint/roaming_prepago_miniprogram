@@ -15,6 +15,7 @@
       <view class="content-text" slot="content">
         <slot name="content"> {{content}}</slot>
       </view>
+     
     </modal>
   </view>
 </view>

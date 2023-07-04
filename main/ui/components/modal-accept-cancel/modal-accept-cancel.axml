@@ -22,11 +22,9 @@
         </view>
          
 
-        <view class="body-content">
-          <icon class="icon" type="InformationCircleOutline" style="font-size: 30px"/>
+        <view class="body-content" a:if="{{ contentVisible }}">
           <slot name="content"> {{content}}</slot>
         </view>
-        
       </view>
 
 

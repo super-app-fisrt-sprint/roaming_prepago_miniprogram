@@ -1,0 +1,24 @@
+<view>
+  <view class="modal-container">
+    <modal
+      title="{{title}}"
+      content="{{content}}"
+      visible="{{visible}}"
+      onClose="handleClose"
+      primaryButtonText="{{primaryButtonText}}"
+      onPrimaryButtonTap="onAcceptButtonTapOne"
+    >
+      <view class="container-modal" slot="header">
+        <image id="icon-modal-succedwarning" mode="scaleToFill" src="{{url}}" />
+      </view>
+
+      <view class="content-text" slot="content">
+        <slot name="content"> {{content}}</slot>
+      </view>
+
+      <view class="content-text-left content-text-flex " slot="content">
+          <slot name="content"> {{content2}}</slot>
+      </view>
+    </modal>
+  </view>
+</view>

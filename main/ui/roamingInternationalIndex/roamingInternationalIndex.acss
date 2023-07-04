@@ -1,0 +1,66 @@
+.roaming__personas__container {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 2%;
+  height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.roaming__personas__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+}
+.roaming__personas__info__title {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.roaming__personas__info__type {
+  margin-top: 30rpx;
+  font-weight: bold;
+}
+
+.roaming__personas__info__divider {
+  margin-top: 10rpx;
+  background-color: var(--rojo-base);
+  width: 110rpx;
+  height: 8rpx;
+  border-radius: 10rpx;
+}
+
+.roaming__personas__container__data {
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.roaming__personas__container__card {
+  padding: 3%;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 600rpx;
+  height: 100rpx;
+  border-radius: 20rpx;
+  box-shadow: 2px 2px 10px #2f2f6029;
+}
+.roaming__personas__container__recharge {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.roaming__personas__container__recharges {
+  color: #187385;
+  text-decoration: underline;
+}
+
+.roaming__personas__container__icon {
+  padding-left: 10rpx;
+  color: #187385;
+}

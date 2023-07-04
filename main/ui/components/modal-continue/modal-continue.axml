@@ -1,0 +1,24 @@
+<view>
+  <view class="modal-container">
+    <modal
+      title="{{title}}"
+      content="{{content}}"
+      visible="{{visible}}"
+      onClose="handleClose"
+      primaryButtonText="{{primaryButtonText}}"
+      onPrimaryButtonTap="onAcceptButtonTapOne"
+    >
+      <view class="container-modal" slot="header">
+        <icon class="icon" type="InformationCircleOutline" />
+      </view>
+
+      <view class="content-text" slot="content">
+        <slot name="content"> {{content}}</slot>
+      </view>
+      <view onTap="redirectUrl" class="content-text" style="color:#187385;text-decoration: underline;font-size:14px;"  slot="content">
+        <slot name="content"> {{contentUrlTitle}}</slot>
+      </view>
+     
+    </modal>
+  </view>
+</view>

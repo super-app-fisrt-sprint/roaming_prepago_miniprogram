@@ -1,7 +1,9 @@
 {
   "subPackageBuildType": "shared",
   "pages": [
-    "main/ui/roamingInternationalIndex/roamingInternationalIndex"
+    "main/ui/roamingInternationalIndex/roamingInternationalIndex",
+    "main/ui/RoamingPrepago/RoamingPrepago",
+    "main/ui/enableRoaming/enableRoaming"
   ],
   "window": {
     "defaultTitle": "",

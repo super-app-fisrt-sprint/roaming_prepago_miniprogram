@@ -2,6 +2,7 @@ Component({
   props: {
     title: "",
     descriptionTitleVisible: true,
+    contentVisible:true,
     descriptionTitle: "",
     content: "",
     visible: false,

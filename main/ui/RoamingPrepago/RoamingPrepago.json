@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "header-personas": "/main/ui/components/HeaderImageRed/headerImageRed",
+    "icon": "antd-mini/es/Icon/index",
+    "loading-component": "/main/ui/components/loading-component/loading-component",
+    "modal-accept": "../components/modal-accept/modal-accept",
+    "modal-accept-cancel": "../components/modal-accept-cancel/modal-accept-cancel",
+    "toast" : "/main/ui/components/Toast/index",
+    "modal-continue":"/main/ui/components/modal-continue/modal-continue",
+    "modal-accept-succeed":"../components/modal-accept-succeed/modal-accept-succeed"
+  },
+  "styleIsolation": "apply-shared"
+}

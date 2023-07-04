@@ -1,0 +1,72 @@
+<header-image image="../../assets/logo-claro-blanco.svg" style="height:{{titleBarHeight + statusBarHeight + 10}}px" />
+
+<view class="container" style="padding-top: {{titleBarHeight + statusBarHeight + 25}}px">
+  <text class="bold h2 margin-title black">Activa tu Roaming</text>
+  <text class="black h3">Elije la vigencia que deseas tener para tu viaje</text>
+  
+  <arrow-button
+  onTap="onConfirmActiveRoaming"
+  style="margin-top:20px; margin-left:20px; margin-right:20px; font-weight: bold; width:85%"
+  stateImg={{true}}
+  imgSrc="/main/ui/assets/icons/roaming/Icono-fecha-limite.svg"
+  iconArrowSrc="/main/ui/assets/icons/navigateNextBlack.svg"
+  >
+  Activa por tiempo indefinido
+  </arrow-button>
+
+  
+  <date-picker
+  format="DD/MM/YYYY"
+  cancelText="Cancelar"
+  style="margin-top:20px; margin-left:20px; margin-right:20px; font-weight: bold; width:85%"
+  okText="Seleccionar"
+  min="{{min}}"
+  max="{{max}}"
+  placeholder="Activar con fecha límite"
+  value="{{datePickerValue}}"
+  onOk="handlePickerAccept"
+  onFormatLabel="handleFormatLabel"
+>
+  <view slot="content" style="height:100%; width:130%;">
+    <arrow-button
+    stateImg={{true}}
+    imgSrc="/main/ui/assets/icons/roaming/Icono-tiempo-indefinido.svg"
+    iconArrowSrc="/main/ui/assets/icons/navigateNextBlack.svg"
+    >Activar con fecha límite</arrow-button>
+  </view>
+</date-picker>
+  
+
+</view>
+
+<modal-accept-cancel
+      title=""
+      descriptionTitleVisible = true
+      descriptionTitle="{{modalInfo.title}}"
+      content="{{modalInfo.content}}"
+      visible="{{modalInfo.visible}}"
+      onClose="handleClose"
+      primaryButtonText="{{modalInfo.primaryButtonText}}"
+      secondaryButtonText="{{modalInfo.secondaryButtonText}}"
+      onPrimaryButtonTap="onAcceptButtonActivateRoaming"
+>
+</modal-accept-cancel>
+
+
+<toast 
+  content="{{toast.content}}" 
+  visible="{{toast.visible}}"
+  icon="{{toast.type}}"
+  onClose="handleClose" 
+  duration="{{toast.duration}}" 
+  style="{{toast.color}}"
+/>
+
+
+<loading-component a:if="{{showLoading}}" />
+
+
+
+
+
+         

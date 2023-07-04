@@ -1,5 +1,11 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 page {
-  background: #f7f7f7;
+  background: #FDFDFF;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -7,4 +13,6 @@ page {
   --claro-color: #e52a1b;
   --rojo-base: #e03224;
   --rojo-oscuro: #ac1422;
+  --bg--color: #FDFDFF;
+  --stepper-color: #006b4f;
 }

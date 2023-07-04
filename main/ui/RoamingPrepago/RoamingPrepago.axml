@@ -1,0 +1,116 @@
+<header-personas  style="height:{{titleBarHeight + statusBarHeight + 15}}px" />
+
+<view class="container-item">
+  <view class="text-info-guia">
+    <text>Activa Roaming</text>
+  </view>
+  <view class="text-info-guia-2">
+    <text>Sigue conectado durante tu viaje internacional con nuestro servicio de Roaming</text>
+  </view>
+  <view  class="container-card-package-inactive">
+    <view  class="card-float-package">
+      <view class="header-card-float-package" style="padding-bottom:15px">
+        <view class="text-align-center">
+          <view class="item-text-state">
+            Servicio Roaming:
+          </view>
+          
+        </view>
+        <view class="switch-item">
+          <view>
+            <switch
+              controlled
+              color="#187385"
+              onChange="switchChange"
+              checked={{switchServiceState}}
+            />
+          </view>
+        </view>
+      </view>
+    </view>
+    <block a:if="{{switchServiceState}}">
+      <view  class="card-float-package-inactive">
+        <view class="header-card-float-package" style="padding-bottom:15px">
+          <view class="text-align-center">
+            <view class="item-text-state">
+              Fecha de expiración:
+            </view>
+          </view>
+          <view class="item-text-date">
+            {{expirationDate}}
+          </view>
+        </view>
+      </view>
+      <view class="container-btn-guia-login" style="padding-bottom:20px">
+        <button class="btn-Modificar" size="default" onTap="redirectToEnableRoaming">
+          Modificar
+        </button>
+      </view>
+      <view class="line-space-gray" style="padding-top:0px;padding-bottom:10px">
+      </view>
+      <view class="text-info-guia-3"style="padding-top:14px;">
+        <text>Conoce los paquetes de Roaming para que sigas conectado en tus viajes</text>
+      </view>
+      <view class="container-btn-guia-login" style="padding-bottom:20px">
+        <button class="btn-guia-login" size="default" onTap="redirectToActivatePackages">
+          Ver paquetes
+        </button>
+      </view>
+      <view class="line-space-gray" style="padding-top:0px;padding-bottom:10px">
+      </view>
+    </block>
+   </view>
+  <loading-component a:if="{{showLoading}}" />
+  <modal-accept-cancel
+  descriptionTitle="¿Deseas desactivar el servicio de Roaming internacional en tu linea?"
+  content={{accountId}}
+  visible="{{modalInfo.visible}}"
+  onClose="handleClose"
+  primaryButtonText="{{modalInfo.primaryButtonText}}"
+  secondaryButtonText="{{modalInfo.secondaryButtonText}}"
+  onPrimaryButtonTap="onAcceptButtonDisableRoaming"
+>
+
+</modal-accept-cancel>
+<modal-accept-cancel
+descriptionTitleVisible= false
+contentVisible=false
+descriptionTitle= "¿Deseas comprar paquetes para tu país de destino?"
+visible= "{{modalOnlymsgbuy}}"
+secondaryButtonText= "No, gracias"
+primaryButtonText= "Sí, comprar"
+onClose="handleClose"
+onPrimaryButtonTap="redirectToActivatePackages"
+onSecondaryButtonTap="ModalShowMoreinformation" 
+>
+</modal-accept-cancel>
+<modal-continue
+visible="{{modalMoreInformation}}"
+content="Los datos, minutos y SMS se cobrarán con la tarifa del país ya que no tienes un paquete con tu Roaming activo"
+contentUrlTitle="Más información"
+primaryButtonText="Continuar"
+
+onClose="handleClose"
+url="/main/ui/RoamingPospago/Redirect/Redirect"
+onPrimaryButtonTap="ExecuteModalSucceedActivateService"
+>
+</modal-continue>
+<toast
+  content="{{toast.content}}"
+  visible="{{toast.visible}}"
+  icon="{{toast.type}}"
+  onClose="handleClose"
+  duration="{{toast.duration}}"
+  style="{{toast.color}} width: 350px; max-height:40px; top:15%"
+/>
+<modal-accept-succeed
+url="../assets/icons/roaming/succeedIcon.svg"
+title="Tu servicio de Roaming fue activado exitosamente"
+content="Reinicia el equipo asociado a la línea para terminar el proceso"
+content2="Tu fecha de caducidad es {{expirationDate}}"
+visible="{{modalVisibleCompletedActivate}}"
+onClose="handleClose"
+primaryButtonText="Cerrar"
+>
+</modal-accept-succeed>
+</view>

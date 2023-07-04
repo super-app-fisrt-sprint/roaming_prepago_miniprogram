@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "header-image": "../components/headerImage/headerImage",
+    "loading-component": "../components/loading-component/loading-component",
+    "arrow-button" : "../components/arrow-button/arrow-button",
+    "modal-accept-cancel" : "../components/modal-accept-cancel/modal-accept-cancel",
+    "date-picker" : "../../../node_modules/antd-mini/es/DatePicker/index",
+    "toast" : "/main/ui/components/Toast/index"
+  },
+  "styleIsolation": "apply-shared"
+}

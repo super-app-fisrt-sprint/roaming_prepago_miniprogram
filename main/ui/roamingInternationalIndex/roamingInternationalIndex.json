@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "header-image-red": "../components/HeaderImageRed/headerImageRed"
+    "header-personas": "/main/ui/components/HeaderImageRed/headerImageRed",
+    "icon": "antd-mini/es/Icon/index"
   },
   "styleIsolation": "apply-shared"
 }
