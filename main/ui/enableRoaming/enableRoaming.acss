@@ -33,7 +33,7 @@
   width:85%;
 }
 
-.ant-picker-placeholder {
+/* .ant-picker-placeholder {
   color: black;
-}
+} */
 

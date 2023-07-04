@@ -9,7 +9,7 @@ Page({
     datePickerValue:"",
     min: new Date(),
     max: new Date('31/12/2025'),
-    fechaLimite: "31/12/2024",
+    fechaLimite: "",
     modalInfo: 
     {
       title: "",
@@ -31,14 +31,14 @@ Page({
     }
   },
   onLoad(e) {
-    const min = e.accountId.trim();
+    // const min = e.accountId.trim();
     const deviceSpect = DeviceSpectViewModel.getInfoDeviceStorage();
     const { titleBarHeight, statusBarHeight } = my.getSystemInfoSync();
     this.setData({
       titleBarHeight,
       statusBarHeight,
       deviceSpect,
-      min
+      // min
     });
     
   },
