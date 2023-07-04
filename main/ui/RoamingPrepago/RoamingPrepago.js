@@ -301,8 +301,9 @@ Page({
     })
   },
   redirectToActivatePackages(){
+    const min =this.data.accountId;
     my.navigateTo({
-      url:"/main/ui/activateRoamingPackages/activateRoamingPackages"
+      url:`/main/ui/ActivatePackagesRoaming/activateRoamingPackageIndex/activateRoamingPackageIndex?accountId=${min}`
     })
   },
   ExecuteModalSucceedActivateService(){

@@ -1,0 +1,21 @@
+.content__package {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.content__package__info__offerday {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content__package__title__offerday {
+  text-align: center;
+  margin-top: 5rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: var(--text-color);
+}

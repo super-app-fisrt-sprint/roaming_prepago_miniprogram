@@ -3,7 +3,9 @@
   "pages": [
     "main/ui/roamingInternationalIndex/roamingInternationalIndex",
     "main/ui/RoamingPrepago/RoamingPrepago",
-    "main/ui/enableRoaming/enableRoaming"
+    "main/ui/enableRoaming/enableRoaming",
+    "main/ui/ActivatePackagesRoaming/activateRoamingPackageIndex/activateRoamingPackageIndex",
+    "main/ui/ActivatePackagesRoaming/PeriodOfferPrepago/PeriodOfferPrepago"
   ],
   "window": {
     "defaultTitle": "",

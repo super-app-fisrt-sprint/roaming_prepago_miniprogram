@@ -1,0 +1,30 @@
+<header-image image="../../../assets/logo-claro-blanco.svg" style="height:{{titleBarHeight + statusBarHeight + 10}}px" />
+<view class="content__package" style="padding-top: {{titleBarHeight + statusBarHeight + 25}}px">
+  <view class="content__package__info">
+    <text class="content__package__title">Compra paquetes datos</text>
+  </view>
+
+  <view class="content_menu__type__package">
+
+    <block a:for="{{menuAccess}}" a:for-index="index" a:for-item="item">
+      <view
+        class="menu__type__package"
+        onTap="onIconClick"
+        data-index="{{index}}"
+        data-step={{item.step}}
+      >
+        <view class="menu__type__package__card">
+          <view class="menu__type__package__image">
+            <image
+              class="menu__type__package__icon"
+              src="{{item.iconAccess}}"
+            />
+            <text class="menu__type__package__title">{{item.titleAccess}}</text>
+          </view>
+        </view>
+        <icon class="menu__type__package_icon" type="RightOutline" />
+      </view>
+    </block>
+
+  </view>
+</view>

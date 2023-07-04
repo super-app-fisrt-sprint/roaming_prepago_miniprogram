@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "header-image": "../../components/headerImage/headerImage",
+    "loading-component": "../../components/loading-component/loading-component",
+    "arrow-button" : "../../components/arrow-button/arrow-button",
+    "modal-accept-cancel" : "../../components/modal-accept-cancel/modal-accept-cancel",
+    "icon": "/node_modules/antd-mini/es/Icon/index"
+  },
+  "styleIsolation": "apply-shared"
+}

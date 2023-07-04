@@ -1,21 +1,30 @@
-module.exports.disablePackagesApiRemote = disablePackagesApiRemote;
-function disablePackagesApiRemote(url,deviceSpect,disableDataRequest) {
+module.exports.enableDisableRoaming = enableDisableRoaming;
+
+/**
+ * 
+ * @param {Url del servicio} url 
+ * @param {Caracteristicas del dispositivo} deviceSpect 
+ * @param {Body (activar: 1 para activar 0 para desactivar, ExpirationDate: fecha para activar con limite,)} data 
+ */
+function enableDisableRoaming(url,deviceSpect,expirationDate,min) {
   return new Promise((resolve, reject) => {
     my.request({
       url: url,
       method: "POST",
       dataType: "json",
-      data:{data:{
-        codePackage:disableDataRequest.codePackage,
-        min: disableDataRequest.min,
-       }},
+      data:{
+        data: {
+          min:min,
+          fecha: expirationDate
+        }
+      },
       headers: {
+        "X-MC-SO":deviceSpect["X-MC-SO"],
         "X-SESSION-ID": deviceSpect["X-SESSION-ID"],
-        "X-MC-LINE":  disableDataRequest.min, 
+        "X-MC-LINE": deviceSpect["X-MC-LINE"], 
         "X-MC-LOB": deviceSpect["X-MC-LOB"],
         "Content-Type": deviceSpect["Content-Type"],
         "X-MC-MAIL": deviceSpect["X-MC-MAIL"],
-        "X-MC-SO": deviceSpect["X-MC-SO"],
         "X-Carrier": deviceSpect["X-Carrier"],
         "X-Wifi": deviceSpect["X-Wifi"],
         "X-MC-HE-V": deviceSpect["X-MC-HE-V"],
@@ -33,7 +42,7 @@ function disablePackagesApiRemote(url,deviceSpect,disableDataRequest) {
         resolve(res);
       },
       fail: res => {
-        reject(res);
+        reject(res.data.response);
       }
     });
   });
