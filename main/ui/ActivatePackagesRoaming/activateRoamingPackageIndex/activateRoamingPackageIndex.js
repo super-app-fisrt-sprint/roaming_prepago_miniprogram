@@ -1,4 +1,5 @@
 const DeviceSpectViewModel = require("../../../domain/DeviceSpectViewModel");
+
 Page({
   data: {
     showLoading: false,

@@ -5,7 +5,8 @@
     "main/ui/RoamingPrepago/RoamingPrepago",
     "main/ui/enableRoaming/enableRoaming",
     "main/ui/ActivatePackagesRoaming/activateRoamingPackageIndex/activateRoamingPackageIndex",
-    "main/ui/ActivatePackagesRoaming/PeriodOfferPrepago/PeriodOfferPrepago"
+    "main/ui/ActivatePackagesRoaming/PeriodOfferPrepago/PeriodOfferPrepago",
+    "main/ui/ActivatePackagesRoaming/termsAndConditionsRoaming/termsAndConditionsRoaming"
   ],
   "window": {
     "defaultTitle": "",

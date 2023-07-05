@@ -56,8 +56,6 @@
           Ver paquetes
         </button>
       </view>
-      <view class="line-space-gray" style="padding-top:0px;padding-bottom:10px">
-      </view>
     </block>
    </view>
   <loading-component a:if="{{showLoading}}" />

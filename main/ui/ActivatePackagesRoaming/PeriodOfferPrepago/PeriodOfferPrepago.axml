@@ -1,7 +1,226 @@
 <header-image image="../../../assets/logo-claro-blanco.svg" style="height:{{titleBarHeight + statusBarHeight + 10}}px" />
-<view class="content__package" style="padding-top: {{titleBarHeight + statusBarHeight + 25}}px">
-  <view class="content__package__info__offerday">
+<view class="content__package" style="padding-top: {{titleBarHeight + statusBarHeight + 10}}px">
+  <view a:if="{{!viewMorepackages}}" class="content__package__info__offerday">
     <text class="content__package__title__offerday">{{type}}</text>
   </view>
 
+  <view a:if="{{!viewMorepackages}}"  class="package__summary">
+    <swiper
+      class="demo-swiper"
+      previousMargin="50px"
+      nextMargin="45px"
+      onChange="swiperSugeridos"
+      current="{{toViewSugeridos}}"
+    >
+      <swiper-item
+        a:for="{{OfferSlice}}"
+        a:for-item="packageitem"
+        class="swiper-item"
+        key="swiper-item-{{index}}"
+      >
+        <view class="package__summary__offer__card">
+          <view class="package__summary__offer__favorite">
+            <icon type="StarFill" />
+            <text class="package__summary__offer__packages__package">PAQUETE ROAMING</text>
+          </view>
+          <block>
+            <view class="package__summary__offer__packages">
+              <text class="package__summary__offer__packages__featured">DESTACADO</text>
+              <text class="package__summary__offer__packages__name">
+                {{packageitem.nombre}}
+              </text>
+              <view class="package__summary__offer__package">
+                <!-- <text class="package__summary__offer__packages__data">700MB</text> -->
+                <text class="package__summary__offer__packages__mins">
+                  {{packageitem.cantidad}}
+                </text>
+              </view>
+              <view class="divider"></view>
+              <view class="package__summary__offer__packages__section">
+                <text class="package__summary__offer__packages__price">PRECIO</text>
+                <text class="package__summary__offer__packages__value">
+                  {{packageitem.precioSTR}}
+                </text>
+                <text class="package__summary__offer__packages__validity">
+                  {{"Vigencia de: " + packageitem.vigencia + " dias"}} 
+                </text>
+              </view>
+              <view class="divider"></view>
+              <view class="package__summary__offer__packages__include__countries">
+                <text class="package__summary__offer__packages__include__countries__dis">
+                  Disponible en
+                </text>
+                <view class="package__summary__offer__packages__include__countries__list">
+                  <block
+                    a:for="{{ packageitem.paises }}"
+                    a:for-item="country"
+                  >
+                    <text class="package__summary__offer__packages__include__countrie">
+                      {{country}}
+                    </text>
+                  </block>
+                </view>
+
+
+              </view>
+              
+              <view
+                class="package__summary__offer__packages__button"
+                onTap="OnSelectPackage"
+                data-value={{packageitem}}
+              >
+                <button class="package__summary__offer__packages__button__select">
+                  Elegir
+                </button>
+              </view>
+            </view>
+          </block>
+        </view>
+      </swiper-item>
+    </swiper>
+
+    <view class="container-btn-transition">
+      <block
+        a:for="{{orderIsTap}}"
+        a:for-index="index"
+        a:for-item="item"
+      >
+        <button
+          class="{{item ? 'stretch-button-active' : 'stretch-button'}}"
+          onTap="buttonTapSwiper"
+          data-item="{{index}}"
+        >
+
+        </button>
+      </block>
+    </view>
+
+  </view>
+  <button a:if="{{!viewMorepackages && viewBtnViewMore}}" class="btn-ver-mas" size="default" onTap="redirectToViewMore">
+    Ver más paquetes
+  </button>
+  <view a:if="{{viewMorepackages}}">
+    <scroll-view scroll-y="{{true}}" class="active_Roaming__scroll__view">
+      <view a:for="{{Offer}}" a:for-item="packageitem">
+       <view class="package__summary__offer__card" style="padding-top:20rpx"> 
+         <view class="package__summary__offer__favorite">
+           <icon type="StarFill" />
+           <text class="package__summary__offer__packages__package">PAQUETE ROAMING</text>
+         </view>
+         <block>
+           <view class="package__summary__offer__packages">
+             <!-- <text class="package__summary__offer__packages__featured">{{serviceTypeStr}}]</text> -->
+             <text class="package__summary__offer__packages__name">
+               {{packageitem.nombre}}
+             </text>
+             <view class="package__summary__offer__package">
+               <!-- <text class="package__summary__offer__packages__data">700MB</text> -->
+               <text class="package__summary__offer__packages__mins">
+                 {{packageitem.cantidad}}
+               </text>
+             </view>
+             <view class="divider"></view>
+             <view class="package__summary__offer__packages__section">
+               <text class="package__summary__offer__packages__price">PRECIO</text>
+               <text class="package__summary__offer__packages__value">
+                 {{packageitem.precioSTR}}
+               </text>
+               <text class="package__summary__offer__packages__validity">
+                 <!-- {{"Vigencia de: " + packageitem.vigencia + " dias"}}  -->
+               </text>
+             </view>
+             <view class="divider"></view>
+             
+             <view
+               class="package__summary__offer__packages__button"
+               onTap="OnSelectPackage"
+               data-value={{packageitem}}
+             >
+               <button class="package__summary__offer__packages__button__select">
+                 Elegir
+               </button>
+             </view>
+           </view>
+         </block>
+       </view>
+      </view>
+      
+     </scroll-view>
+   
+  </view>
+  <popup
+  visible="{{popUpActivate}}"
+  height="{{400}}"
+  position="bottom"
+  animation="{{animation}}"
+  onClose="handlePopupClose"
+>
+
+  <view class="popup-container">
+    <view onTap="handlePopupClose" class="popup-container__divider">
+    </view>
+    <view class="popup-container__title">
+      ¿Deseas adquirir el paquete para el número?
+    </view>
+    <view class="popup-container__sub" style="font-size:24px;font-weight:bold">
+      <text>{{accountId}}</text>
+    </view>
+    <view class="popup-container__termscolums">
+      <radio-group onChange="OnRadioChangeTermsConditions">
+        <radio
+          class="popup-container__radio"
+          checked="{{termsConditionsCheck}}"
+          color="#187385"
+        />
+      </radio-group>
+      <view class="popup-container__text" onTap="OnRedirectTermsConditions">
+        <text style="padding-right: 10rpx; font-size: 12px">Acepto los</text>
+        <text style="font-size: 12px" class="popup-container__terms ">
+          Terminos y condiciones
+        </text>
+      </view>
+    </view>
+    <view>
+      Método de pago: Activar contra saldo
+     </view>
+    <view class="popup-container__container___button">
+      <button
+        onTap="activatePackagewarning"
+        class="popup-container__button {{termsConditionsCheck ? 'popup-container__button___enable' : '' }}"
+        disabled="{{!termsConditionsCheck}}"
+      >
+        Activar
+      </button>
+    </view>
+  </view>
+</popup>
+
+<view class="modal-cancel-Approval">
+  <modal-aceptar-cancelar
+title= "¿Activar paquete?"
+descriptionTitleVisible= true
+descriptionTitle= "Ten en cuenta que este cambio se verá reflejado inmediatamente en tu línea"
+content= {{accountId}}
+visible= "{{modalVisibleConfirtBuy}}"
+onClose="handleClose"
+secondaryButtonText= "Cancelar"
+primaryButtonText= "Activar"
+onPrimaryButtonTap="ejecutarTrama"
+>
+</modal-aceptar-cancelar>
+</view>
+
+<view class="modal-succed-approval">
+  <modal-accept-succeed
+url="../../assets/icons/roaming/succeedIcon.svg"
+title="Tu paquete ha sido activado con éxito"
+content="Recibirás un SMS con la descripción del paquete"
+content2="Reinicia tu equipo para terminar el proceso"
+visible="{{modalVisibleCompletedBuy}}"
+onClose="handleSucceedClose"
+primaryButtonText="Cerrar"
+></modal-accept-succeed>
+</view>
+
+<loading-component a:if="{{showLoading}}" />
 </view>
