@@ -12,7 +12,6 @@ async function getOfferPackagesRoaming(deviceSpect,accountId,esMasivo,otraLinea,
   try {
 
     const res = await offerPackagesRoamingRepository.offerPackagesRoamingRemote(deviceSpect,offerPackagesRoaming);
-    
     if (
       res &&
       res.data &&
@@ -28,6 +27,7 @@ async function getOfferPackagesRoaming(deviceSpect,accountId,esMasivo,otraLinea,
       packages.categories=responseOffer.categorias
       packages.packages=responseOffer.paquetes
       packages.succees=true
+      console.log("dfdf--->",res)
       return packages
     } else {
       return packages.succees=false;

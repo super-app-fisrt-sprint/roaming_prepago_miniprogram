@@ -56,11 +56,18 @@ Page({
     let len = packages.length;
     const orderIsTap= new Array(len).fill(false);
     orderIsTap[0] = true;
-    let OfferSlice=packages.slice(0,3)
+    let packagesNew = packages.map(({ precio, ...resto }) => ({
+      precio,
+      precioSTR: this.convertCurrency(precio),
+      ...resto
+    }));
+
+    let OfferSlice=packagesNew.slice(0,3)
+    console.log("offerDay---->", packagesNew)
     this.setData({
       viewBtnViewMore:true,
       orderIsTap,
-      Offer:packages,
+      Offer:packagesNew,
       OfferSlice:OfferSlice
     })
   },
@@ -149,4 +156,13 @@ Page({
       showLoading: false
     });
   },
+   convertCurrency(value) {
+     const formatterPeso = new Intl.NumberFormat("es-CO", {
+       style: "currency",
+       currency: "COP",
+       minimumFractionDigits: 0
+     });
+     let result = formatterPeso.format(value);
+     return result;
+   },
 });
