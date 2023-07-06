@@ -221,6 +221,13 @@ onClose="handleSucceedClose"
 primaryButtonText="Cerrar"
 ></modal-accept-succeed>
 </view>
-
+<modal-cancer-single-title
+url="../assets/icons/roaming/warning-triangle-svgrepo-com.svg"
+title="No hay oferta disponible."
+visible="{{showModalOfferEmpty}}"
+onClose="handleOnlyClose"
+primaryButtonText="Cerrar"
+>
+</modal-cancer-single-title>
 <loading-component a:if="{{showLoading}}" />
 </view>
