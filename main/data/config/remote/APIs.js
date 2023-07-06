@@ -14,6 +14,7 @@ const URL_BASE = {
   URL_DISABLE_ROAMING:'https://apiselfservice.co/M3/Prepago/Roaming/desactivarServicio/',
   URL_DATA_LIMIT:'https://apiselfservice.co/M3/Postpago/limiteCredito/',
   URL_AUTO_REFRESH: 'https://apiselfservice.co/api/index.php/v2/soap/AuthRefresh.json',
-  URL_OFFER_ROAMING_ACTIVE:'https://apiselfservice.co/M3/Prepago/Roaming/ConsultarCatalogoPaquetePrepagoRoaming/'
+  URL_OFFER_ROAMING_ACTIVE:'https://apiselfservice.co/M3/Prepago/Roaming/ConsultarCatalogoPaquetePrepagoRoaming/',
+  URL_ACTIVATE_PACKAGE: 'https://apiselfservice.co/M3/Prepago/Roaming/ejecutarTrama/'
 };
 
