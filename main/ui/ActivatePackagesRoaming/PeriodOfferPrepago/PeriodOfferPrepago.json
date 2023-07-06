@@ -8,7 +8,9 @@
     "popup": "/node_modules/antd-mini/es/Popup/index",
     "modal-aceptar-cancelar":"../../components/modal-accept-cancel/modal-accept-cancel",
     "modal-accept-succeed":"../../components/modal-accept-succeed/modal-accept-succeed",
-    "modal-cancer-single-title":"../../components/modal-cancer-single-title/modal-cancer-single-title"
+    "modal-cancer-single-title":"../../components/modal-cancer-single-title/modal-cancer-single-title",
+    "modal-info-scroll":"../../components/modal-info-scroll/modal-info-scroll",
+    "divider": "/node_modules/antd-mini/es/Divider/index"
   },
   "styleIsolation": "apply-shared"
 }

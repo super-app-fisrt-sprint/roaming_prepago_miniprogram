@@ -193,4 +193,16 @@ Page({
      let result = formatterPeso.format(value);
      return result;
    },
+   descriptionModalOffer(e){
+     let info=e.currentTarget.dataset.value;
+    this.setData({
+      inforModaloffer:info,
+      modalOfferInfoDescription:true
+    })
+   },
+   handleCloseInfo(){
+    this.setData({
+      modalOfferInfoDescription:false
+    })
+   }
 });

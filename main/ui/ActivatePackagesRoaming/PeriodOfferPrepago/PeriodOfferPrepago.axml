@@ -26,9 +26,9 @@
           <block>
             <view class="package__summary__offer__packages">
               <text class="package__summary__offer__packages__featured">DESTACADO</text>
-              <text class="package__summary__offer__packages__name">
+              <!-- <text class="package__summary__offer__packages__name">
                 {{packageitem.nombre}}
-              </text>
+              </text> -->
               <view class="package__summary__offer__package">
                 <!-- <text class="package__summary__offer__packages__data">700MB</text> -->
                 <text class="package__summary__offer__packages__mins">
@@ -47,9 +47,7 @@
               </view>
               <view class="divider"></view>
               <view class="package__summary__offer__packages__include__countries">
-                <text class="package__summary__offer__packages__include__countries__dis">
-                  Disponible en
-                </text>
+               
                 <view class="package__summary__offer__packages__include__countries__list">
                   <block
                     a:for="{{ packageitem.paises }}"
@@ -72,6 +70,9 @@
                 <button class="package__summary__offer__packages__button__select">
                   Elegir
                 </button>
+              </view>
+              <view class="package__summary__offer__packages__description" onTap="descriptionModalOffer" data-value={{packageitem.descripcion}}>
+                <text>Descripción del paquete</text>
               </view>
             </view>
           </block>
@@ -228,5 +229,15 @@ onClose="handleClose"
 primaryButtonText="Cerrar"
 >
 </modal-cancer-single-title>
+<view class="modalInfoScrollcontainer">
+  <modal-info-scroll
+  content="{{inforModaloffer}}"
+  visible="{{modalOfferInfoDescription}}"
+  onClose="handleCloseInfo"
+  primaryButtonText="Cerrar"
+  onPrimaryButtonTap="handleCloseInfo"
+  >
+  </modal-info-scroll>
+</view>
 <loading-component a:if="{{showLoading}}" />
 </view>

@@ -1,0 +1,22 @@
+<view>
+  <view class="modal-container">
+    <modal
+      title="{{title}}"
+      content="{{content}}"
+      visible="{{visible}}"
+      onClose="handleClose"
+      primaryButtonText="{{primaryButtonText}}"
+      onPrimaryButtonTap="onAcceptButtonTapOne"
+    >
+      <view class="container-modal" slot="header">
+        <icon class="icon" type="InformationCircleOutline" />
+      </view>
+
+      <scroll-view scroll-y="{{true}}" class="offer__scroll__view" slot="content">
+        <view class="content-text" >
+          <slot name="content"> {{content}}</slot>
+        </view>
+      </scroll-view>
+    </modal>
+  </view>
+</view>

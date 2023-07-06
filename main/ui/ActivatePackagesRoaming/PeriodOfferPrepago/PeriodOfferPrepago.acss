@@ -69,7 +69,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 670rpx;
+  height: 570rpx;
   border-radius: 30rpx;
   background-color: white;
 }
@@ -102,18 +102,18 @@
 }
 
 .package__summary__offer__packages__mins {
-  font-weight: bold;
+  font-weight: 400;
   text-align: center;
   padding-left: 10rpx;
   padding-right: 10rpx;
-  font-size: 18rpx;
+  font-size: 60rpx;
 }
 
 .divider {
   height: 3rpx;
   width: 90%;
   margin: 10rpx 0;
-  background-color: #ececec;
+  background-color: #e4e2e2;
 }
 
 .package__summary__offer__packages__section {
@@ -131,8 +131,8 @@
 
 .package__summary__offer__packages__value {
   color: var(--claro-color);
-  font-size: 40rpx;
-  font-weight: 600;
+  font-size: 50rpx;
+  font-weight: bold;
 }
 
 .package__summary__offer__packages__validity {
@@ -206,7 +206,7 @@
 }
 
 .demo-swiper {
-  height: 750rpx !important;
+  height: 640rpx !important;
   margin-top: 15px;
   margin-bottom: 15px;
 }
@@ -361,4 +361,16 @@
   
   height: 1200rpx !important;
   width: 510rpx;
+}
+.package__summary__offer__packages__description {
+  font-weight: bold;
+  color: #187385;
+  font-size: 14px;
+  text-decoration: underline;
+  margin-top: 45rpx;
+  padding-bottom: 60rpx;
+}
+
+.modalInfoScrollcontainer .ant-modal-body {
+  width: 6rem;
 }
