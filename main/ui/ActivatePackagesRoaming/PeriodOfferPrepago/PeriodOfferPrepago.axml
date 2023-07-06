@@ -96,7 +96,7 @@
     </view>
 
   </view>
-  <button a:if="{{!viewMorepackages && viewBtnViewMore}}" class="btn-ver-mas" size="default" onTap="redirectToViewMore">
+  <button a:if="{{!viewMorepackages && viewBtnViewMore && Offer.length>3}}" class="btn-ver-mas" size="default" onTap="redirectToViewMore">
     Ver más paquetes
   </button>
   <view a:if="{{viewMorepackages}}">
