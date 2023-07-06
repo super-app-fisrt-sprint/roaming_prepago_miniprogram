@@ -23,7 +23,6 @@ async function getRetrieveRoaming(deviceSpect,accountId) {
       if(res.data.response.consumo){
         retrieveRoaming.consume = res.data.response.consumo;
       }
-      
       return retrieveRoaming
     } else {
       return false;
