@@ -222,7 +222,7 @@ primaryButtonText="Cerrar"
 ></modal-accept-succeed>
 </view>
 <modal-cancer-single-title
-url="../assets/icons/roaming/warning-triangle-svgrepo-com.svg"
+url="../../assets/icons/roaming/warning-triangle-svgrepo-com.svg"
 title="No hay oferta disponible."
 visible="{{showModalOfferEmpty}}"
 onClose="handleOnlyClose"
