@@ -1,5 +1,8 @@
 const DeviceSpectViewModel = require("../../../domain/DeviceSpectViewModel");
 const getOfferPackagesRoaming = require("../../../domain/offerPackagesRoamingViewModel")
+
+const createProvisioningViewModel = require("../../../domain/CreateProvisioningViewModel")
+
 Page({
   data: {
     titleBarHeight: 0,
@@ -98,7 +101,8 @@ Page({
   OnSelectPackage(e) {
     console.log(e.currentTarget.dataset.value);
     this.setData({
-      popUpActivate:true
+      popUpActivate:true,
+      packageSelected: e.currentTarget.dataset.value
     })
   },
   activatePackagewarning(){
@@ -108,8 +112,23 @@ Page({
     })
   },
   ejecutarTrama(){
-    this.setData({
-      modalVisibleCompletedBuy:true
+    this.showLoading()
+    createProvisioningViewModel.createProvisioning(this.data.deviceSpect, this.data.accountId, this.data.packageSelected.codigoPaqueteSaldo).then(result=>{
+      this.hideLoading();
+      if(result)
+      {
+        this.setData({
+          modalVisibleCompletedBuy:true
+        })
+      }else
+      {
+        
+      }
+      
+      
+    })
+    .catch(error=>{
+      this.hideLoading();
     })
   },
   handleClose() {

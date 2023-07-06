@@ -1,4 +1,4 @@
-const Provisioning = require("../data/attributes/Provisioning/entities/Provisioning");
+
 const ProvisioningServiceRepository = require("../data/attributes/ActivatePackage/repository/ActivatePackageRoamingRepository");
 
 
@@ -22,7 +22,6 @@ async function createProvisioning(deviceSpect,lineNumber,packageCode) {
   }catch(error){
     return false
   }
-  
 }
 
 module.exports.createProvisioning = createProvisioning;
