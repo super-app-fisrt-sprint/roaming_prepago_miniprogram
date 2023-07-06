@@ -99,6 +99,7 @@
   <button a:if="{{!viewMorepackages && viewBtnViewMore && Offer.length>3}}" class="btn-ver-mas" size="default" onTap="redirectToViewMore">
     Ver más paquetes
   </button>
+
   <view a:if="{{viewMorepackages}}">
     <scroll-view scroll-y="{{true}}" class="active_Roaming__scroll__view">
       <view a:for="{{Offer}}" a:for-item="packageitem">
@@ -144,9 +145,7 @@
          </block>
        </view>
       </view>
-      
-     </scroll-view>
-   
+    </scroll-view>
   </view>
   <popup
   visible="{{popUpActivate}}"
