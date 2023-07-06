@@ -34,7 +34,7 @@ Page({
       type
     });
 
-    getOfferPackagesRoaming.getOfferPackagesRoaming(deviceSpect,accountId,"true","","-1","2","thatanspk@gmail.com").then(packages=>{
+    getOfferPackagesRoaming.getOfferPackagesRoaming(deviceSpect,accountId,"true","","-1","2").then(packages=>{
       
       if(packages.succees){
         if(this.data.productType==1){

@@ -19,7 +19,7 @@ function offerPackagesRoaming(url,deviceSpect,offerPackagesRoaming) {
           otraLinea:offerPackagesRoaming.otraLinea,
           saldo:offerPackagesRoaming.saldo,
           tipoPaquete:offerPackagesRoaming.tipoPaquete,
-          UserProfileID:offerPackagesRoaming.userProfileID,
+          UserProfileID:deviceSpect["X-MC-MAIL"],
         }
       },
       headers: {

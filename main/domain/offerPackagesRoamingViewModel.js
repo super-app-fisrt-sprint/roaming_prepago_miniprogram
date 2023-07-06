@@ -2,11 +2,11 @@ const OfferPackagesRoaming= require("../data/attributes/OfferPackages/entities/O
 const Packages= require("../data/attributes/OfferPackages/entities/packages");
 const OfferPackagesRoamingRepository = require("../data/attributes/OfferPackages/repository/OfferPackagesRepository");
 
-async function getOfferPackagesRoaming(deviceSpect,accountId,esMasivo,otraLinea,saldo,tipoPaquete,userProfile) {
+async function getOfferPackagesRoaming(deviceSpect,accountId,esMasivo,otraLinea,saldo,tipoPaquete) {
  
   const offerPackagesRoamingRepository  = new OfferPackagesRoamingRepository();
   const packages =new Packages();
-  const offerPackagesRoaming = new OfferPackagesRoaming(accountId,esMasivo,otraLinea,saldo,tipoPaquete,userProfile);
+  const offerPackagesRoaming = new OfferPackagesRoaming(accountId,esMasivo,otraLinea,saldo,tipoPaquete,deviceSpect["X-MC-MAIL"]);
   let result = { error: true, message: "En este momento no podemos atender esta solicitud, intenta nuevamente" };
 
   try {
