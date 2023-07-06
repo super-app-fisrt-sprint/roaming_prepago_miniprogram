@@ -114,18 +114,22 @@ Page({
   ejecutarTrama(){
     this.showLoading()
     createProvisioningViewModel.createProvisioning(this.data.deviceSpect, this.data.accountId, this.data.packageSelected.codigoPaqueteSaldo).then(result=>{
+      console.log(result);
       this.hideLoading();
-      if(result)
+      if(!result.error)
       {
         this.setData({
           modalVisibleCompletedBuy:true
         })
       }else
       {
-        
+        console.log(result);
+        this.setData(
+          {
+            indoModalTitle: result.message,
+            showModalOfferEmpty: true
+          })
       }
-      
-      
     })
     .catch(error=>{
       this.hideLoading();
@@ -134,7 +138,8 @@ Page({
   handleClose() {
     this.setData({
       modalVisibleConfirtBuy: false,
-      termsConditionsCheck: false
+      termsConditionsCheck: false,
+      showModalOfferEmpty: false
     });
   },   
   handlePopupClose() {

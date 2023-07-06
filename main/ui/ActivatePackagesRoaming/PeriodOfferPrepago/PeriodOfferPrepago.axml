@@ -223,9 +223,9 @@ primaryButtonText="Cerrar"
 </view>
 <modal-cancer-single-title
 url="../../assets/icons/roaming/warning-triangle-svgrepo-com.svg"
-title="No hay oferta disponible."
+title="{{indoModalTitle}}"
 visible="{{showModalOfferEmpty}}"
-onClose="handleOnlyClose"
+onClose="handleClose"
 primaryButtonText="Cerrar"
 >
 </modal-cancer-single-title>

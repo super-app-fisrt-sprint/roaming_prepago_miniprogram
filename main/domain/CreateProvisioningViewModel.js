@@ -6,7 +6,10 @@ async function createProvisioning(deviceSpect,lineNumber,packageCode) {
 
   const provisioningServiceRepository= new  ProvisioningServiceRepository();
   try{
+    
     const res = await  provisioningServiceRepository.activatePackageRoaming(deviceSpect,lineNumber,packageCode);
+    let result = { error: true, message: "En este momento no podemos atender esta solicitud, intenta nuevamente" };
+
     if (
       res &&
       res.data &&
@@ -15,13 +18,18 @@ async function createProvisioning(deviceSpect,lineNumber,packageCode) {
       res.data.response !== undefined &&
       res.data.error == 0
     ) {
-      return true;
+      result.error = false;
+      result.message = res.data.response;
     }else {
-      return false;
+      result.error = true;
+      result.message = res.data.response;
     }
+    return result;
   }catch(error){
-    return false
+    result.error = true;
+    return result;
   }
+  
 }
 
 module.exports.createProvisioning = createProvisioning;
