@@ -9,39 +9,39 @@ Page({
     accountId:""
   },
   onLoad() {
-    const accountId = "3112516584";
-    const loginString = `{
-      "DocumentType": 1,
-      "email": "juan.saavedra9306@gmail.com",
-      "nombre": "",
-      "apellido": "",
-      "UserProfileID": "juan.saavedra9306@gmail.com",
-      "DocumentNumber": "",
-      "NumberAccount": "",
-      "lineNumber": ""
-      }`;
-
-    const deviceString = `{"X-SESSION-ID":"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",
-      "X-MC-LINE": "3112516584",
-      "X-MC-LOB": "2",
-      "Content-Type": "application/json; charset=UTF-8",
-      "X-MC-MAIL": "thatanspk@gmail.com",
-      "X-MC-SO": "android",
-      "X-Carrier": "claro",
-      "X-Wifi": true,
-      "X-MC-HE-V": "3",
-      "X-MC-SO-V": "11",
-      "Cache-Control": "no-cache",
-      "X-MC-SO-API": "30",
-      "X-MC-SO-PHONE-F": "samsung",
-      "X-MC-SO-PHONE-M": "SM-S908E",
-      "X-MC-APP-V": "15.0.0",
-      "X-MC-DEVICE-NAME": "samsungSM-S908E",
-      "X-MC-DEVIDE-ID":
-        "GwoilWmyuJs6IxXKMIiCR18DQ3Qx+axRzGutYT820NPODRz4TuigtXGTcDUp2KMG3LT3NNyNwuT14ugZrb5Jbzyd6b0AFiLGenLqWIdmjxIfndtLyzTd5pUUojacwrV7Q/+bY5qxCLptkpjSPRN5MG6gNbHbUrqoJuIYdSKMMQ0=",
-      "X-MC-USER-AGENT":
-        "eyJpcCI6IjE5Mi4xNjguMS4xMDMiLCJ1c2VyQWdlbnQiOiJNaUNsYXJvQXBwLzAuMC4xIChYaWFvbWk7IE0yMTAxSzdCTDsgXHUwMDNjYW5kcm9pZC8xMVx1MDAzZSkifQ=="
+    const accountId = "3219882751";
+  const loginString = `{
+    "DocumentType": 1,
+    "email": "gabrielsan98@hotmail.com",
+    "nombre": "",
+    "apellido": "",
+    "UserProfileID": "gabrielsan98@hotmail.com",
+    "DocumentNumber": "",
+    "NumberAccount": "",
+    "lineNumber": ""
     }`;
+
+  const deviceString = `{"X-SESSION-ID":"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",
+    "X-MC-LINE": "3219882751",
+    "X-MC-LOB": "2",
+    "Content-Type": "application/json; charset=UTF-8",
+    "X-MC-MAIL": "gabrielsan98@hotmail.com",
+    "X-MC-SO": "android",
+    "X-Carrier": "claro",
+    "X-Wifi": true,
+    "X-MC-HE-V": "3",
+    "X-MC-SO-V": "11",
+    "Cache-Control": "no-cache",
+    "X-MC-SO-API": "30",
+    "X-MC-SO-PHONE-F": "samsung",
+    "X-MC-SO-PHONE-M": "SM-S908E",
+    "X-MC-APP-V": "15.0.0",
+    "X-MC-DEVICE-NAME": "samsungSM-S908E",
+    "X-MC-DEVIDE-ID":
+      "PPyyf/EJmzSWiHcfQbv6gZvohSK/p1RF2YKbyTcAm8OlZkLQHEu0d/U7GgY/yG3bzpMCJfRfrk/0YYm/5ys6nHXW+QGjBysFGMV+AvlRICS36rwEwc1R4MA6EtmkrePxSt8wEeklfqRMELHYfWARDL3v4NTXbIKWyALhYumlE7k=",
+    "X-MC-USER-AGENT":
+      "eyJpcCI6IjE5Mi4xNjguMS4xMDMiLCJ1c2VyQWdlbnQiOiJNaUNsYXJvQXBwLzAuMC4xIChYaWFvbWk7IE0yMTAxSzdCTDsgXHUwMDNjYW5kcm9pZC8xMVx1MDAzZSkifQ=="
+  }`;
     //charge info login User in storage
     DeviceSpectViewModel.createInfoDeviceStorage(deviceString);
     DataLoginViewModel.createDataLoginInfoStorage(loginString);
