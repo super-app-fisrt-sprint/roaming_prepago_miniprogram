@@ -1,8 +1,7 @@
 const DeviceSpectViewModel = require("../../../domain/DeviceSpectViewModel");
 const getOfferPackagesRoaming = require("../../../domain/offerPackagesRoamingViewModel")
-
 const createProvisioningViewModel = require("../../../domain/CreateProvisioningViewModel")
-
+const registerTicketRoamingViewModal=require("../../../domain/CreateProvisioningViewModel")
 Page({
   data: {
     titleBarHeight: 0,
@@ -114,10 +113,15 @@ Page({
   ejecutarTrama(){
     this.showLoading()
     createProvisioningViewModel.createProvisioning(this.data.deviceSpect, this.data.accountId, this.data.packageSelected.codigoPaqueteSaldo).then(result=>{
-      console.log(result);
       this.hideLoading();
       if(!result.error)
       {
+        registerTicketRoamingViewModal.createProvisioning(this.data.deviceSpect,this.data.accountId,this.data.packageSelected.descripcion).then(result=>{
+          console.log("Ticket:",result)
+        })
+        .catch(error=>{
+          console.log("Error:",error)
+        })
         this.setData({
           modalVisibleCompletedBuy:true
         })
