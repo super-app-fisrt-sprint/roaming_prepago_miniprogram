@@ -9,6 +9,11 @@
       "title": "paquetes 1",
       "page": "main/ui/ActivatePackagesRoaming/PeriodOfferPrepago/PeriodOfferPrepago",
       "pageQuery": "accountId=3219882751&type=1"
+    },
+    {
+      "title": "main/ui/ActivatePackagesRoaming/activateRoamingPackageIndex/activateRoamingPackageIndex",
+      "page": "main/ui/ActivatePackagesRoaming/activateRoamingPackageIndex/activateRoamingPackageIndex",
+      "pageQuery": "accountId=3219882751"
     }
   ]
 }

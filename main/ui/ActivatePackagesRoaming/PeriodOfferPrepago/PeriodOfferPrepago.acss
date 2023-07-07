@@ -7,7 +7,6 @@
 }
 .package__summary {
   width: 100%;
-  padding: 3%;
   display: flex;
   flex-direction: column;
 }
@@ -19,8 +18,8 @@
 
 .content__package__title__offerday {
   text-align: center;
-  margin-top: 5rpx;
-  font-size: 30rpx;
+  margin: 55rpx 0;
+  font-size: 40rpx;
   font-weight: bold;
   color: var(--text-color);
 }
@@ -40,6 +39,7 @@
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  margin: 0 15px;
 }
 
 .package__summary__offer__favorite {
@@ -62,7 +62,6 @@
 
 .package__summary__offer__packages {
   position: relative;
-  z-index: 1;
   box-shadow: 0px 1px 5px #00000029;
   border-radius: 20rpx 20rpx 0 0;
   width: 100%;
@@ -364,9 +363,13 @@
   width: 5rem;
 }
 
-.active_Roaming__scroll__view {
-  height: 1200rpx !important;
-  width: 510rpx;
+.active_Roaming__scroll__view{
+  margin-top: 30rpx;
+  height: 80% !important;
+  width: auto;
+  margin: 0 130rpx;
+  padding-top: 20rpx;
+  padding-bottom: 100rpx;
 }
 .package__summary__offer__packages__description {
   font-weight: bold;
@@ -378,4 +381,42 @@
 
 .modalInfoScrollcontainer .ant-modal-body {
   width: 6rem;
+}
+
+.btn-btn-close-view{
+  top: 197px;
+  left: 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: none;
+  color: #187385;
+  font-size: 24px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-close-view{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.container-card-float-scroll{
+  background-color: #F6F6F6
+}
+
+.header__Roaming__scroll__view__{
+  background-color: #F6F6F6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding:10rpx 0;
+}
+.roaming-header-text-second{
+  font-weight: bold;
 }

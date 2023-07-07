@@ -9,7 +9,8 @@ Page({
     toViewSugeridos:0,
     popUpActivate: false,
     modalVisibleConfirtBuy:false,
-    viewMorepackages:false
+    viewMorepackages:false,
+    ordenAscendente:false,
   },
   onLoad(e) {
     this.showLoading()
@@ -204,5 +205,26 @@ Page({
     this.setData({
       modalOfferInfoDescription:false
     })
+   },
+   closeViewMorePackages(){
+     this.setData({
+      viewMorepackages:false
+     })
+   },
+   FilterViewMorePackages(){
+     console.log("entre")
+     let productos=this.data.Offer;
+     let ordenAscendente=this.data.ordenAscendente;
+     if (ordenAscendente) {
+      productos.sort((a, b) => a.precio - b.precio);
+    } else {
+      productos.sort((a, b) => b.precio - a.precio);
+    }
+    ordenAscendente = !ordenAscendente;
+     this.setData({
+      Offer:productos,
+      ordenAscendente:ordenAscendente
+     })
+     console.log("entre--->",productos)
    }
 });
