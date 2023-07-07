@@ -112,10 +112,9 @@
         <text>Paquetes todo incluido</text>
       </view>
       <view class="btn-btn-close-view">
-        <view class="btn-close-view">
+        <view class="btn-close-view" onTap="FilterViewMorePackages">
           <icon type="UpOutline" />
         </view>
-        
       </view>
     </view>
     <view class="container-card-float-scroll">
