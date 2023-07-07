@@ -10,7 +10,7 @@ Page({
     popUpActivate: false,
     modalVisibleConfirtBuy:false,
     viewMorepackages:false,
-    ordenAscendente:true,
+    ordenAscendente:false,
   },
   onLoad(e) {
     this.showLoading()
