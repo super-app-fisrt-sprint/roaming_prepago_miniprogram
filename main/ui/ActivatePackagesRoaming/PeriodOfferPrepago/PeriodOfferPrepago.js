@@ -204,5 +204,10 @@ Page({
     this.setData({
       modalOfferInfoDescription:false
     })
+   },
+   closeViewMorePackages(){
+     this.setData({
+      viewMorepackages:false
+     })
    }
 });
