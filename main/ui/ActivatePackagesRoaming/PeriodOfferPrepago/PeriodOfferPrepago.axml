@@ -1,6 +1,6 @@
 <header-image image="../../../assets/logo-claro-blanco.svg" style="height:{{titleBarHeight + statusBarHeight + 10}}px" />
 <view class="content__package" style="padding-top: {{titleBarHeight + statusBarHeight + 10}}px">
-  <view  class="content__package__info__offerday">
+  <view class="content__package__info__offerday">
     <text class="content__package__title__offerday">{{type}}</text>
   </view>
 
@@ -97,11 +97,16 @@
     </view>
 
   </view>
-  <button a:if="{{!viewMorepackages && viewBtnViewMore && Offer.length>1}}" class="btn-ver-mas" size="default" onTap="redirectToViewMore">
+  <button
+    a:if="{{!viewMorepackages && viewBtnViewMore && Offer.length>1}}"
+    class="btn-ver-mas"
+    size="default"
+    onTap="redirectToViewMore"
+  >
     Ver más paquetes
   </button>
 
-  <view  a:if="{{viewMorepackages}}">
+  <view a:if="{{viewMorepackages}}">
     <view class="header__Roaming__scroll__view__">
       <view class="btn-btn-close-view" onTap="closeViewMorePackages">
         <view class="btn-close-view">
@@ -113,56 +118,61 @@
       </view>
       <view class="btn-btn-close-view">
         <view class="btn-close-view" onTap="FilterViewMorePackages">
-          <icon type="UpOutline" />
+          <image class="btn-close-icon" mode="scaleToFill" src="/main/ui/assets/icons/up-down.svg" />
         </view>
       </view>
     </view>
     <view class="container-card-float-scroll">
       <scroll-view scroll-y="{{true}}" class="active_Roaming__scroll__view">
         <view a:for="{{Offer}}" a:for-item="packageitem">
-         <view class="package__summary__offer__card" style="padding-top:20rpx"> 
-           <view class="package__summary__offer__favorite">
-             <icon type="StarFill" />
-             <text class="package__summary__offer__packages__package">PAQUETE ROAMING</text>
-           </view>
-           <block>
-             <view class="package__summary__offer__packages">
-               <!-- <text class="package__summary__offer__packages__featured">{{serviceTypeStr}}]</text> -->
-               <!-- <text class="package__summary__offer__packages__name">
-                 {{packageitem.nombre}}
-               </text> -->
-               <view class="package__summary__offer__package">
-                 <!-- <text class="package__summary__offer__packages__data">700MB</text> -->
-                 <text class="package__summary__offer__packages__mins">
-                   {{packageitem.cantidad}}
-                 </text>
-               </view>
-               <view class="divider"></view>
-               <view class="package__summary__offer__packages__section">
-                 <text class="package__summary__offer__packages__price">PRECIO</text>
-                 <text class="package__summary__offer__packages__value">
-                   {{packageitem.precioSTR}}
-                 </text>
-                 <text class="package__summary__offer__packages__validity">
-                   <!-- {{"Vigencia de: " + packageitem.vigencia + " dias"}}  -->
-                 </text>
-               </view>
-               <view class="divider"></view>
-               <view class="package__summary__offer__packages__description" onTap="descriptionModalOffer" data-value={{packageitem.descripcion}}>
-                <text>Descripción del paquete</text>
+          <view class="package__summary__offer__card" style="padding-top:20rpx">
+            <view class="package__summary__offer__favorite">
+              <icon type="StarFill" />
+              <text class="package__summary__offer__packages__package">PAQUETE ROAMING</text>
+            </view>
+            <block>
+              <view class="package__summary__offer__packages__list">
+                <!--<text class="package__summary__offer__packages__featured">{{serviceTypeStr}}]</text> -->
+                <!--<text class="package__summary__offer__packages__name">
+                 {{packageitem.nombre}}</text> -->
+                <view class="package__summary__offer__package">
+                  <!--<text class="package__summary__offer__packages__data">700MB</text> -->
+                  <text class="package__summary__offer__packages__mins">
+                    {{packageitem.cantidad}}
+                  </text>
+                  <view class="divider__amount"></view>
+                </view>
+
+                <view class="package__summary__offer__packages__section">
+                  <text class="package__summary__offer__packages__price">PRECIO</text>
+                  <text class="package__summary__offer__packages__value">
+                    {{packageitem.precioSTR}}
+                  </text>
+                  <text class="package__summary__offer__packages__validity">
+                    {{"Vigencia de: " + packageitem.vigencia + " dias"}}
+                  </text>
+                  <view class="divider__price"></view>
+                </view>
+
+                <view
+                  class="package__summary__offer__packages__description"
+                  onTap="descriptionModalOffer"
+                  data-value={{packageitem.descripcion}}
+                >
+                  <text>Descripción del paquete</text>
+                </view>
+                <view
+                  class="package__summary__offer__packages__button"
+                  onTap="OnSelectPackage"
+                  data-value={{packageitem}}
+                >
+                  <button class="package__summary__offer__packages__button__select">
+                    Elegir
+                  </button>
+                </view>
               </view>
-               <view
-                 class="package__summary__offer__packages__button"
-                 onTap="OnSelectPackage"
-                 data-value={{packageitem}}
-               >
-                 <button class="package__summary__offer__packages__button__select">
-                   Elegir
-                 </button>
-               </view>
-             </view>
-           </block>
-         </view>
+            </block>
+          </view>
         </view>
       </scroll-view>
     </view>
