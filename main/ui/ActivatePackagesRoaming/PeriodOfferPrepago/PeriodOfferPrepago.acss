@@ -109,11 +109,18 @@
   font-size: 60rpx;
 }
 
-.divider {
+.divider__price {
+  margin-top: 20rpx;
   height: 3rpx;
-  width: 90%;
-  margin: 10rpx 0;
-  background-color: #e4e2e2;
+  width: 400rpx;
+  background-color: #ececec;
+}
+
+.divider__amount {
+  margin-top: 20rpx;
+  height: 3rpx;
+  background-color: #ececec;
+  width: 400rpx;
 }
 
 .package__summary__offer__packages__section {
@@ -231,7 +238,7 @@
   margin: 0 auto;
 }
 
-.container-btn-transition>button {
+.container-btn-transition > button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -239,15 +246,15 @@
   height: 8px;
 }
 
-.btn-ver-mas{
+.btn-ver-mas {
   margin-top: 10rpx;
   font: normal normal medium 16px/21px Roboto;
   font-size: 16px;
-  border-color: #DA291C;
+  border-color: #da291c;
   border-radius: 30px;
   width: 53%;
-  color:#DA291C ;
-  background-color: #FDFDFF;
+  color: #da291c;
+  background-color: #fdfdff;
   font-weight: bolder;
 }
 
@@ -353,12 +360,11 @@
   width: 6rem;
 }
 
-.modal-succed-approval .ant-modal-body{
+.modal-succed-approval .ant-modal-body {
   width: 5rem;
 }
 
-.active_Roaming__scroll__view{
-  
+.active_Roaming__scroll__view {
   height: 1200rpx !important;
   width: 510rpx;
 }
@@ -367,8 +373,7 @@
   color: #187385;
   font-size: 14px;
   text-decoration: underline;
-  margin-top: 45rpx;
-  padding-bottom: 60rpx;
+  margin-top: 8rpx;
 }
 
 .modalInfoScrollcontainer .ant-modal-body {
