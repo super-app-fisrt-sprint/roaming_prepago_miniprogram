@@ -11,6 +11,7 @@ Page({
     modalVisibleConfirtBuy:false,
     viewMorepackages:false,
     ordenAscendente:false,
+    modalVisibleCompletedBuy:false,
   },
   onLoad(e) {
     this.showLoading()
@@ -158,6 +159,9 @@ Page({
     this.setData({
       modalVisibleCompletedBuy:false
     });
+    my.navigateBack({
+      delta:2
+    })
   },
    OnRadioChangeTermsConditions(e) {
     this.setData({
